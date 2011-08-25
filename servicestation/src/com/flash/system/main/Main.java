@@ -12,7 +12,8 @@ public class Main {
 
         System.out.println("Starting...");
 
-        new MainWindow();
+        MainWindow mainWindow = new MainWindow();
+        mainWindow.setVisible(true);
     }
 
 }
