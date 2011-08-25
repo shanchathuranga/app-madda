@@ -1,6 +1,6 @@
 package com.flash.system.main;
 
-import com.flash.system.ui.MainWindow;
+import com.flash.system.view.MainWindow;
 
 /**
  *
