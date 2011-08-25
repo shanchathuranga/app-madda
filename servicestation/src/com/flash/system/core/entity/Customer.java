@@ -1,23 +1,19 @@
 package com.flash.system.core.entity;
 
-
-
 /**
  *
  * @author tharindu
  */
-
-
 public class Customer {
 
-    private String VehRegNo;   /* vehical registration No */
-    private String CusName;    /* Customer Name */
-    private String NicNo;      /* National ID No */
-    private String DriLicNo;   /* Driving Licen No */
+    private String VehRegNo;   /* vehical registration No   */
+    private String CusName;    /* Customer Name             */
+    private String NicNo;      /* National ID No            */
+    private String DriLicNo;   /* Driving Licen No          */
     private String Address1;
     private String Address2;
     private String Address3;
-    private String TelMobile;  /* Mobile phone No */
+    private String TelMobile;  /* Mobile phone No           */
     private String TelHome;
     private String TelOffice;
     private String Fax;
@@ -127,7 +123,5 @@ public class Customer {
     public void setWebSite(String WebSite) {
         this.WebSite = WebSite;
     }
-
-
 
 }
