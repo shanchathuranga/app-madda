@@ -1,6 +1,7 @@
 package com.flash.system.core.service;
 
 import com.flash.system.core.dao.CustomerDAO;
+import com.flash.system.core.entity.Customer;
 import java.util.Collection;
 
 /**
@@ -22,11 +23,11 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public Customer findByPrimaryKey(Long customerId) {
-
+        return null;
     }
 
     public Collection findAll() {
-        
+        return null;
     }
 
 }
