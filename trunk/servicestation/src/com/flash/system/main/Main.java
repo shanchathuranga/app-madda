@@ -1,6 +1,7 @@
 package com.flash.system.main;
 
 import com.flash.system.view.MainWindow;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -12,8 +13,13 @@ public class Main {
 
         System.out.println("Starting...");
 
-        MainWindow mainWindow = new MainWindow();
-        mainWindow.setVisible(true);
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.setVisible(true);
+            }
+        });
+        
     }
 
 }
