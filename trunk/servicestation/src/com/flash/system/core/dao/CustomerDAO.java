@@ -2,6 +2,7 @@ package com.flash.system.core.dao;
 
 import com.flash.system.core.entity.Customer;
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -9,10 +10,10 @@ import java.util.Collection;
  */
 public interface CustomerDAO {
 
-    public void add(Customer customer);
-    public void update(Customer customer);
-    public void remove(Customer customer);
+    public void addCustomer(Customer customer);
+    public void updateCustomer(Customer customer);
+    public void deleteCustomer(Customer customer);
     public Customer findByPrimaryKey(Long id);
-    public Collection findAll();
+    public List<Collection> findAll();
 
 }
