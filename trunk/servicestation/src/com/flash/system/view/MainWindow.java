@@ -5,14 +5,15 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-//import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 
@@ -43,6 +44,9 @@ public class MainWindow extends JFrame{
     private JButton toolExit;
     private JButton toolNewUser;
     private JButton toolUpdateUser;
+
+    private JCheckBoxMenuItem toolAddNewUserItem;
+    private JCheckBoxMenuItem toolUpdateUserItem;
 
     public MainWindow() {
         super();
@@ -107,6 +111,10 @@ public class MainWindow extends JFrame{
         menuItemUpdateVehicle = new JMenuItem("Update Vehicle");
         menuItemAddNewUser = new JMenuItem("Add New User");
         menuItemUpdateUser = new JMenuItem("Update User");
+        toolAddNewUserItem = new JCheckBoxMenuItem("show Add New User Icon");
+        toolAddNewUserItem.setState(false);
+        toolUpdateUserItem = new JCheckBoxMenuItem("show Update User Icon");
+        toolUpdateUserItem.setState(false);
 
         /* Adding Menu Items to Menus */
         menuApp.add(menuUser);
@@ -118,6 +126,8 @@ public class MainWindow extends JFrame{
         menuVehicle.add(menuItemUpdateVehicle);
         menuUser.add(menuItemAddNewUser);
         menuUser.add(menuItemUpdateUser);
+        menuToolBar.add(toolAddNewUserItem);
+        menuToolBar.add(toolUpdateUserItem);
 
         /* Adding Menus to the Menubar */
         menubar.add(menuApp);
@@ -173,6 +183,7 @@ public class MainWindow extends JFrame{
 
     private void initToolBar() {
         toolbar = new JToolBar();
+        add(toolbar, BorderLayout.NORTH);
 
         ImageIcon exit = new ImageIcon(getClass().getResource("/com/flash/system/resource/exit.png"));
 
@@ -183,32 +194,53 @@ public class MainWindow extends JFrame{
             public void actionPerformed(ActionEvent event) {
                 System.exit(0);
             }
-        });
-        add(toolbar, BorderLayout.NORTH);
+        });   
 
         ImageIcon newuser = new ImageIcon(getClass().getResource("/com/flash/system/resource/newuser.png"));
 
         toolNewUser = new JButton(newuser);
         toolNewUser.setToolTipText("Create New User");
         toolbar.add(toolNewUser);
+        toolNewUser.setVisible(false);
         toolNewUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
-        add(toolbar, BorderLayout.NORTH);
 
         ImageIcon updateuser = new ImageIcon(getClass().getResource("/com/flash/system/resource/updateuser.png"));
 
         toolUpdateUser = new JButton(updateuser);
         toolUpdateUser.setToolTipText("Update User");
         toolbar.add(toolUpdateUser);
+        toolUpdateUser.setVisible(false);
         toolUpdateUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
-        add(toolbar, BorderLayout.NORTH);
+
+        toolAddNewUserItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                AbstractButton aButton = (AbstractButton) event.getSource();
+                if(aButton.getModel().isSelected()) {
+                    toolNewUser.setVisible(true);
+                } else {
+                    toolNewUser.setVisible(false);
+                }
+            }
+        });
+
+        toolUpdateUserItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                AbstractButton aButton = (AbstractButton) event.getSource();
+                if(aButton.getModel().isSelected()) {
+                    toolUpdateUser.setVisible(true);
+                } else {
+                    toolUpdateUser.setVisible(false);
+                }
+            }
+        });
     }
 
 }
