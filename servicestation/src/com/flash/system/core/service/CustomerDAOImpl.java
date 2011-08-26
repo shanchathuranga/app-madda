@@ -3,6 +3,7 @@ package com.flash.system.core.service;
 import com.flash.system.core.dao.CustomerDAO;
 import com.flash.system.core.entity.Customer;
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -10,15 +11,15 @@ import java.util.Collection;
  */
 public class CustomerDAOImpl implements CustomerDAO {
 
-    public void add(Customer customer) {
+    public void addCustomer(Customer customer) {
 
     }
 
-    public void update(Customer customer) {
+    public void updateCustomer(Customer customer) {
 
     }
 
-    public void remove(Customer customer) {
+    public void deleteCustomer(Customer customer) {
 
     }
 
@@ -26,7 +27,7 @@ public class CustomerDAOImpl implements CustomerDAO {
         return null;
     }
 
-    public Collection findAll() {
+    public List<Collection> findAll() {
         return null;
     }
 
