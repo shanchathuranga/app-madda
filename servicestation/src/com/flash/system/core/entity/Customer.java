@@ -24,104 +24,104 @@ public class Customer {
         return address1;
     }
 
-    public void setAddress1(String Address1) {
-        this.address1 = Address1;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
     }
 
     public String getAddress2() {
         return address2;
     }
 
-    public void setAddress2(String Address2) {
-        this.address2 = Address2;
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
     public String getAddress3() {
         return address3;
     }
 
-    public void setAddress3(String Address3) {
-        this.address3 = Address3;
+    public void setAddress3(String address3) {
+        this.address3 = address3;
+    }
+
+    public String getCusDriLicNo() {
+        return cusDriLicNo;
+    }
+
+    public void setCusDriLicNo(String cusDriLicNo) {
+        this.cusDriLicNo = cusDriLicNo;
+    }
+
+    public String getCusNICNo() {
+        return cusNICNo;
+    }
+
+    public void setCusNICNo(String cusNICNo) {
+        this.cusNICNo = cusNICNo;
     }
 
     public String getCusName() {
         return cusName;
     }
 
-    public void setCusName(String CusName) {
-        this.cusName = CusName;
-    }
-
-    public String getDriLicNo() {
-        return cusDriLicNo;
-    }
-
-    public void setDriLicNo(String DriLicNo) {
-        this.cusDriLicNo = DriLicNo;
+    public void setCusName(String cusName) {
+        this.cusName = cusName;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String Email) {
-        this.email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFax() {
         return fax;
     }
 
-    public void setFax(String Fax) {
-        this.fax = Fax;
+    public void setFax(String fax) {
+        this.fax = fax;
     }
 
-    public String getNicNo() {
-        return cusNICNo;
-    }
-
-    public void setNicNo(String NicNo) {
-        this.cusNICNo = NicNo;
-    }
-
-    public String getTelHome() {
+    public String getTpHome() {
         return tpHome;
     }
 
-    public void setTelHome(String TelHome) {
-        this.tpHome = TelHome;
+    public void setTpHome(String tpHome) {
+        this.tpHome = tpHome;
     }
 
-    public String getTelMobile() {
+    public String getTpMobile() {
         return tpMobile;
     }
 
-    public void setTelMobile(String TelMobile) {
-        this.tpMobile = TelMobile;
+    public void setTpMobile(String tpMobile) {
+        this.tpMobile = tpMobile;
     }
 
-    public String getTelOffice() {
+    public String getTpOffice() {
         return tpOffice;
     }
 
-    public void setTelOffice(String TelOffice) {
-        this.tpOffice = TelOffice;
+    public void setTpOffice(String tpOffice) {
+        this.tpOffice = tpOffice;
     }
-   
+
     public String getVehRegNo() {
         return vehRegNo;
     }
 
-    public void setVehRegNo(String VehRegNo) {
-        this.vehRegNo = VehRegNo;
+    public void setVehRegNo(String vehRegNo) {
+        this.vehRegNo = vehRegNo;
     }
 
-    public String getWebSite() {
+    public String getWeburl() {
         return weburl;
     }
 
-    public void setWebSite(String WebSite) {
-        this.weburl = WebSite;
+    public void setWeburl(String weburl) {
+        this.weburl = weburl;
     }
 
 }
