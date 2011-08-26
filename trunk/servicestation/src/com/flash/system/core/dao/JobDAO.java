@@ -1,5 +1,8 @@
 package com.flash.system.core.dao;
 
+import com.flash.system.core.entity.Job;
+import java.util.List;
+
 /**
  *
  * @author shan

@@ -1,6 +1,7 @@
 package com.flash.system.core.service;
 
 import com.flash.system.core.dao.PreOrderDAO;
+import com.flash.system.core.entity.PreOrder;
 import java.util.List;
 
 /**

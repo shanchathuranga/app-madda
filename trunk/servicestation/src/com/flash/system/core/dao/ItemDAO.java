@@ -1,5 +1,6 @@
 package com.flash.system.core.dao;
 
+import com.flash.system.core.entity.Item;
 import java.util.List;
 
 /**
