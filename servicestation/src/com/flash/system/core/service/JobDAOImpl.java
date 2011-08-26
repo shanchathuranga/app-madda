@@ -1,6 +1,7 @@
 package com.flash.system.core.service;
 
 import com.flash.system.core.dao.JobDAO;
+import com.flash.system.core.entity.Job;
 import java.util.List;
 
 /**

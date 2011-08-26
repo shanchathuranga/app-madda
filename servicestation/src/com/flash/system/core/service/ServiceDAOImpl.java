@@ -1,6 +1,7 @@
 package com.flash.system.core.service;
 
 import com.flash.system.core.dao.ServiceDAO;
+import com.flash.system.core.entity.Service;
 import java.util.List;
 
 /**
