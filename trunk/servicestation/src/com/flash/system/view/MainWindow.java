@@ -1,5 +1,6 @@
 package com.flash.system.view;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -35,7 +36,9 @@ public class MainWindow extends JFrame{
         bt.setToolTipText("Quit");
         panel.add(bt);
 
-        setSize(500, 500);
+        setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
+                Toolkit.getDefaultToolkit().getScreenSize().height
+                );
         setLocationRelativeTo(null);
         setTitle("Flash Service Station");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
