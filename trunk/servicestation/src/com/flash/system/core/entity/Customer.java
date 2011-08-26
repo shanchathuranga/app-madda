@@ -6,122 +6,122 @@ package com.flash.system.core.entity;
  */
 public class Customer {
 
-    private String VehRegNo;   /* vehical registration No   */
-    private String CusName;    /* Customer Name             */
-    private String NicNo;      /* National ID No            */
-    private String DriLicNo;   /* Driving Licen No          */
-    private String Address1;
-    private String Address2;
-    private String Address3;
-    private String TelMobile;  /* Mobile phone No           */
-    private String TelHome;
-    private String TelOffice;
-    private String Fax;
-    private String Email;
-    private String WebSite;
+    private String vehRegNo;    /* vehical registration No   */
+    private String cusName;     /* Customer Name             */
+    private String cusNICNo;    /* National ID No            */
+    private String cusDriLicNo; /* Driving Licen No          */
+    private String address1;
+    private String address2;
+    private String address3;
+    private String tpMobile;    /* Mobile phone No           */
+    private String tpHome;
+    private String tpOffice;
+    private String fax;
+    private String email;
+    private String weburl;
 
     public String getAddress1() {
-        return Address1;
+        return address1;
     }
 
     public void setAddress1(String Address1) {
-        this.Address1 = Address1;
+        this.address1 = Address1;
     }
 
     public String getAddress2() {
-        return Address2;
+        return address2;
     }
 
     public void setAddress2(String Address2) {
-        this.Address2 = Address2;
+        this.address2 = Address2;
     }
 
     public String getAddress3() {
-        return Address3;
+        return address3;
     }
 
     public void setAddress3(String Address3) {
-        this.Address3 = Address3;
+        this.address3 = Address3;
     }
 
     public String getCusName() {
-        return CusName;
+        return cusName;
     }
 
     public void setCusName(String CusName) {
-        this.CusName = CusName;
+        this.cusName = CusName;
     }
 
     public String getDriLicNo() {
-        return DriLicNo;
+        return cusDriLicNo;
     }
 
     public void setDriLicNo(String DriLicNo) {
-        this.DriLicNo = DriLicNo;
+        this.cusDriLicNo = DriLicNo;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String Email) {
-        this.Email = Email;
+        this.email = Email;
     }
 
     public String getFax() {
-        return Fax;
+        return fax;
     }
 
     public void setFax(String Fax) {
-        this.Fax = Fax;
+        this.fax = Fax;
     }
 
     public String getNicNo() {
-        return NicNo;
+        return cusNICNo;
     }
 
     public void setNicNo(String NicNo) {
-        this.NicNo = NicNo;
+        this.cusNICNo = NicNo;
     }
 
     public String getTelHome() {
-        return TelHome;
+        return tpHome;
     }
 
     public void setTelHome(String TelHome) {
-        this.TelHome = TelHome;
+        this.tpHome = TelHome;
     }
 
     public String getTelMobile() {
-        return TelMobile;
+        return tpMobile;
     }
 
     public void setTelMobile(String TelMobile) {
-        this.TelMobile = TelMobile;
+        this.tpMobile = TelMobile;
     }
 
     public String getTelOffice() {
-        return TelOffice;
+        return tpOffice;
     }
 
     public void setTelOffice(String TelOffice) {
-        this.TelOffice = TelOffice;
+        this.tpOffice = TelOffice;
     }
    
     public String getVehRegNo() {
-        return VehRegNo;
+        return vehRegNo;
     }
 
     public void setVehRegNo(String VehRegNo) {
-        this.VehRegNo = VehRegNo;
+        this.vehRegNo = VehRegNo;
     }
 
     public String getWebSite() {
-        return WebSite;
+        return weburl;
     }
 
     public void setWebSite(String WebSite) {
-        this.WebSite = WebSite;
+        this.weburl = WebSite;
     }
 
 }
