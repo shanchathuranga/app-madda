@@ -1,11 +1,13 @@
 package com.flash.system.view;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.AbstractButton;
+import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
@@ -23,6 +25,7 @@ import javax.swing.UIManager;
  */
 public class MainWindow extends JFrame{
 
+    private Container pane;
     private JMenuBar menubar;
 
     private JMenu menuApp;
@@ -44,6 +47,7 @@ public class MainWindow extends JFrame{
     private JButton toolExit;
     private JButton toolNewUser;
     private JButton toolUpdateUser;
+    private JButton toolLogInOut;
 
     private JCheckBoxMenuItem toolAddNewUserItem;
     private JCheckBoxMenuItem toolUpdateUserItem;
@@ -56,24 +60,13 @@ public class MainWindow extends JFrame{
             System.out.println(ex);
         }
         setDefaultLookAndFeelDecorated(true);
-
-        /*JPanel panel = new JPanel();
-        getContentPane().add(panel);
-
-        panel.setLayout(null);
-        JButton bt = new JButton(" OK ");
-        bt.setBounds(200, 225, 100, 50);
-        bt.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                System.exit(0);
-            }
-        });
-        bt.setToolTipText("Quit");
-        panel.add(bt);*/
+        setLayout(new BorderLayout());
+        pane = getContentPane();
 
         initMenuBar();
         initMenuActions();
         initToolBar();
+        //initBody();
 
         setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
                 Toolkit.getDefaultToolkit().getScreenSize().height
@@ -220,6 +213,17 @@ public class MainWindow extends JFrame{
             }
         });
 
+        toolLogInOut = new JButton("Log In");
+        toolbar.add(Box.createHorizontalGlue());
+        toolbar.add(toolLogInOut);
+
+        toolLogInOut.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                initBody();
+
+            }
+        });
+
         toolAddNewUserItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 AbstractButton aButton = (AbstractButton) event.getSource();
@@ -241,6 +245,11 @@ public class MainWindow extends JFrame{
                 }
             }
         });
+    }
+
+    private void initBody() {
+        //pane.add(new JButton("hihii"));
+        JOptionPane.showMessageDialog(null, "Not supported yet.");
     }
 
 }
