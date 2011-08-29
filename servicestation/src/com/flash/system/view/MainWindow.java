@@ -1,8 +1,9 @@
 package com.flash.system.view;
 
 import java.awt.BorderLayout;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -76,9 +77,14 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
         initMenuActions();
         initToolBar();
 
-        setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
-                Toolkit.getDefaultToolkit().getScreenSize().height
-                );
+        GraphicsDevice gDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        if(gDevice.isFullScreenSupported()) {
+            setUndecorated(false);
+	    setResizable(false);
+	    gDevice.setFullScreenWindow(this);
+	    validate();
+        }
+
         setIconImage(getFDImage());
         setLocationRelativeTo(null);
         setTitle("Flash Service Station");
