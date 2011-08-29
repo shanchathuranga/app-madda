@@ -4,34 +4,37 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import net.miginfocom.swing.MigLayout;
 
 /**
  *
  * @author shan
  */
-public class LogIn extends JPanel{
+public class LogIn extends JPanel implements ActionListener {
 
     private JLabel lCaption;
     private JLabel lUsername;
     private JLabel lPassword;
     private JLabel lErrorField;
-    private JLabel lvspace;
-    private JLabel lhspace;
     private JTextField tUsername;
     private JPasswordField tPassword;
     private JButton okButton;
     private JPanel base;
+    private CommonWindowUtilities comUtil;
 
-    LogIn() {
+    LogIn(CommonWindowUtilities comUtil) {
+        this.comUtil = comUtil;
+
         /* Initializing Controllers */
         lCaption = new JLabel("Login Form");
         lCaption.setFont(new Font("Monospaced 12", Font.BOLD, 16));
@@ -57,113 +60,50 @@ public class LogIn extends JPanel{
         okButton = new JButton(" LogIn ");
         okButton.setAlignmentX(Component.RIGHT_ALIGNMENT);
         okButton.setPreferredSize(new Dimension(100, 30));
-        lvspace = new JLabel("");
-        lvspace.setPreferredSize(new Dimension(20, 30));
-        lhspace = new JLabel("");
-        lhspace.setPreferredSize(new Dimension(300, 30));
+        okButton.addActionListener(this);
 
         base = new JPanel();
         base.setBorder(BorderFactory.createEtchedBorder());
-        base.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
+        base.setLayout(new MigLayout());
 
-        /* vertical space */
-        c.gridx = 0;
-        c.gridy = 0;
-        c.gridwidth = 5;
-        base.add(lvspace, c);
+        base.add(lCaption, "cell 0 0 3 1");
+        base.add(lUsername, "cell 0 1");
+        base.add(tUsername, "cell 1 1 2 1");
+        base.add(lPassword, "cell 0 2");
+        base.add(tPassword, "cell 1 2 2 1");
+        base.add(okButton, "cell 1 3");
+        base.add(lErrorField, "cell 0 3 3 1");
 
-        /* caption */
-        c.gridx = 0;
-        c.gridy = 1;
-        c.gridwidth = 5;
-        base.add(lCaption, c);
-
-        /* vertical space */
-        c.gridx = 0;
-        c.gridy = 2;
-        c.gridwidth = 5;
-        base.add(lvspace, c);
-
-        /* horizontal space */
-        c.gridx = 0;
-        c.gridy = 3;
-        c.gridwidth = 1;
-        base.add(lhspace, c);
-
-        /* username label */
-        c.gridx = 1;
-        c.gridy = 3;
-        c.gridwidth = 1;
-        base.add(lUsername, c);
-
-        /* username textfield */
-        c.gridx = 2;
-        c.gridy = 3;
-        c.gridwidth = 2;
-        base.add(tUsername, c);
-
-        /* horizontal space */
-        c.gridx = 3;
-        c.gridy = 3;
-        c.gridwidth = 1;
-        base.add(lhspace, c);
-
-        /* horizontal space */
-        c.gridx = 0;
-        c.gridy = 4;
-        c.gridwidth = 1;
-        base.add(lhspace, c);
-
-        /* password label */
-        c.gridx = 1;
-        c.gridy = 4;
-        c.gridwidth = 1;
-        base.add(lPassword, c);
-
-        /* password textfield */
-        c.gridx = 2;
-        c.gridy = 4;
-        c.gridwidth = 2;
-        base.add(tPassword, c);
-
-        /* horizontal space */
-        c.gridx = 3;
-        c.gridy = 4;
-        c.gridwidth = 1;
-        base.add(lhspace, c);
-
-        /* vertical space */
-        c.gridx = 0;
-        c.gridy = 5;
-        c.gridwidth = 5;
-        base.add(lvspace, c);
-
-        /* login button */
-        c.gridx = 3;
-        c.gridy = 6;
-        c.gridwidth = 1;
-        base.add(okButton, c);
-
-        /* vertical space */
-        c.gridx = 0;
-        c.gridy = 7;
-        c.gridwidth = 5;
-        base.add(lvspace, c);
-
-        /* error field */
-        c.gridx = 0;
-        c.gridy = 8;
-        c.gridwidth = 5;
-        base.add(lErrorField, c);
-
-        /* vertical space */
-        c.gridx = 0;
-        c.gridy = 9;
-        c.gridwidth = 5;
-        base.add(lvspace, c);
-        
+        base.setPreferredSize(new Dimension(320, 165));
         add(base);
     }
 
+    private boolean checkPassword(char[] password) {
+        String pw = "shan";
+        if (password.length != pw.length()) {
+            return false;
+        } else {
+            for (int i = 0; i < pw.length(); i++) {
+                if (password[i] != pw.charAt(i)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == okButton) {
+            String username = tUsername.getText();
+            char[] password = tPassword.getPassword();
+
+            if (username.equals("shan") && checkPassword(password)) {
+                MainWindow.appSession.put("USERNAME", username.toUpperCase());
+                comUtil.getLogInOut().setText("Log Out ( " + username.toUpperCase() + " )");
+                comUtil.clearMainBody();
+            } else {
+                JOptionPane.showMessageDialog(null, "Login Error", "Login Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
 }
