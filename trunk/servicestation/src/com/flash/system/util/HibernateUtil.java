@@ -11,6 +11,7 @@ import org.hibernate.classic.Session;
 public class HibernateUtil {
 
     public static final SessionFactory sessionFactory;
+    public static final ThreadLocal session = new ThreadLocal();
 
     static {
         try {
@@ -21,7 +22,6 @@ public class HibernateUtil {
             throw new ExceptionInInitializerError(ex);
         }
     }
-    public static final ThreadLocal session = new ThreadLocal();
 
     public static Session currentSession() throws Exception {
         Session s = (Session) session.get();
