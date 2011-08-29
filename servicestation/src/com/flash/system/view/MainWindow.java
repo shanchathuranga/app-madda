@@ -1,11 +1,13 @@
 package com.flash.system.view;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
@@ -16,6 +18,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 
@@ -23,9 +26,9 @@ import javax.swing.UIManager;
  *
  * @author shan
  */
-public class MainWindow extends JFrame{
+public class MainWindow extends JFrame implements CommonWindowUtilities{
 
-    private Container pane;
+    private JPanel base;
     private JMenuBar menubar;
 
     private JMenu menuApp;
@@ -52,21 +55,26 @@ public class MainWindow extends JFrame{
     private JCheckBoxMenuItem toolAddNewUserItem;
     private JCheckBoxMenuItem toolUpdateUserItem;
 
+    public static Map appSession = new HashMap();
+    private Stack<JPanel> panelStack;
+
     public MainWindow() {
         super();
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
             System.out.println(ex);
-        }
+        }        
         setDefaultLookAndFeelDecorated(true);
         setLayout(new BorderLayout());
-        pane = getContentPane();
+        base = new JPanel();
+        add(base, BorderLayout.CENTER);
+        panelStack = new Stack<JPanel>();
+        panelStack.push(base);
 
         initMenuBar();
         initMenuActions();
         initToolBar();
-        //initBody();
 
         setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
                 Toolkit.getDefaultToolkit().getScreenSize().height
@@ -219,8 +227,20 @@ public class MainWindow extends JFrame{
 
         toolLogInOut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                initBody();
-
+                if(MainWindow.appSession.containsKey("USERNAME")) {
+                    int n = JOptionPane.showConfirmDialog(
+                                    null,
+                                    "You are going to logout. Are you sure ?",
+                                    "You are going to logout",
+                                    JOptionPane.YES_NO_OPTION
+                                );
+                    if(n == JOptionPane.YES_OPTION) {
+                        getLogInOut().setText("Log In");
+                        MainWindow.appSession.remove("USERNAME");
+                    }
+                } else {
+                    loginBody();
+                }
             }
         });
 
@@ -247,9 +267,26 @@ public class MainWindow extends JFrame{
         });
     }
 
-    private void initBody() {
-        //pane.add(new JButton("hihii"));
-        JOptionPane.showMessageDialog(null, "Not supported yet.");
+    private void loginBody() {
+        base.removeAll();
+        LogIn login = new LogIn(this);
+        panelStack.push(login);
+        base.add(login);
+        base.validate();
+    }
+
+    private void clearBody() {
+        base.remove(panelStack.pop());
+        base.repaint();
+        base.validate();
+    }
+
+    public void clearMainBody() {
+        clearBody();
+    }
+
+    public JButton getLogInOut() {
+        return toolLogInOut;
     }
 
 }
