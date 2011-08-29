@@ -2,7 +2,6 @@ package com.flash.system.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.classic.Session;
 
 /**
  *
@@ -10,33 +9,19 @@ import org.hibernate.classic.Session;
  */
 public class HibernateUtil {
 
-    public static final SessionFactory sessionFactory;
-    public static final ThreadLocal session = new ThreadLocal();
+    private static final SessionFactory sessionFactory;
 
     static {
         try {
-            Configuration config = new Configuration().configure();
-            sessionFactory = config.buildSessionFactory();
-        } catch (Throwable ex) {
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+        } catch (Throwable e) {
+            System.err.println("Error in creating SessionFactory object."
+                    + e.getMessage());
+            throw new ExceptionInInitializerError(e);
         }
     }
 
-    public static Session currentSession() throws Exception {
-        Session s = (Session) session.get();
-        if (s == null) {
-            s = sessionFactory.openSession();
-            session.set(s);
-        }
-        return s;
-    }
-
-    public static void closeSession() throws Exception {
-        Session s = (Session) session.get();
-        if (s != null) {
-            s.close();
-        }
-        session.set(null);
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
     }
 }
