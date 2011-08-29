@@ -1,11 +1,18 @@
 package com.flash.system.core.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author tharindu
  */
+@Entity
 public class Customer {
 
+    private Long customerId;    /* Unique ID for custormer   */
     private String vehRegNo;    /* vehical registration No   */
     private String cusName;     /* Customer Name             */
     private String cusNICNo;    /* National ID No            */
@@ -19,6 +26,16 @@ public class Customer {
     private String fax;
     private String email;
     private String weburl;
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCusId(Long cusId) {
+        this.customerId = customerId;
+    }
 
     public String getAddress1() {
         return address1;
