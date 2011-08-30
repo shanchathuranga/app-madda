@@ -18,16 +18,16 @@ import javax.persistence.Id;
 @Entity
 public class Account {
 
-   private long accoutId;
+   private long accountId;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    public long getAccoutId() {
-        return accoutId;
+    public long getAccountId() {
+        return accountId;
     }
 
-    public void setAccoutId(long accoutId) {
-        this.accoutId = accoutId;
+    public void setAccountId(long accoutId) {
+        this.accountId = accountId;
     }
    
 }
