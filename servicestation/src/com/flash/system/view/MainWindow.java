@@ -43,6 +43,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JMenuItem menuItemUpdateVehicle;
     private JMenuItem menuItemAddNewUser;
     private JMenuItem menuItemUpdateUser;
+    private JMenuItem menuItemAddNewUserType;
+
     private JToolBar toolbar;
     private JButton toolExit;
     private JButton toolNewCustomer;
@@ -120,6 +122,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemUpdateVehicle = new JMenuItem("Update Vehicle");
         menuItemAddNewUser = new JMenuItem("Add New User");
         menuItemUpdateUser = new JMenuItem("Update User");
+        menuItemAddNewUserType = new JMenuItem("Add New User Type");
 
         toolAddNewCustomerItem = new JCheckBoxMenuItem("show Add New Customer Icon");
         toolAddNewCustomerItem.setState(false);
@@ -144,6 +147,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuVehicle.add(menuItemUpdateVehicle);
         menuUser.add(menuItemAddNewUser);
         menuUser.add(menuItemUpdateUser);
+        menuUser.add(menuItemAddNewUserType);
         menuToolBar.add(toolAddNewCustomerItem);
         menuToolBar.add(toolUpdateCustomerItem);
         menuToolBar.add(toolAddUserItem);
@@ -207,6 +211,13 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
 
             public void actionPerformed(ActionEvent ae) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
+            }
+        });
+
+        menuItemAddNewUserType.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                addNewUserTypeBody();
             }
         });
     }
@@ -297,7 +308,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         ImageIcon updateVehicleIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/edit_vehicle.png"));
 
         toolUpdateVehicle = new JButton(updateVehicleIcon);
-        toolUpdateVehicle.setToolTipText("Add New Vehicle");
+        toolUpdateVehicle.setToolTipText("Update Vehicle");
         toolbar.add(toolUpdateVehicle);
         toolUpdateVehicle.setVisible(false);
         toolUpdateVehicle.addActionListener(new ActionListener() {
@@ -416,6 +427,14 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         AddNewCustomer addNewCustomer = new AddNewCustomer(this);
         panelStack.push(addNewCustomer);
         base.add(addNewCustomer);
+        base.validate();
+    }
+
+    private void addNewUserTypeBody() {
+        base.removeAll();
+        AddNewUserType addNewUserType = new AddNewUserType(this);
+        panelStack.push(addNewUserType);
+        base.add(addNewUserType);
         base.validate();
     }
 

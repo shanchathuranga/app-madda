@@ -15,7 +15,7 @@ import javax.swing.JTextField;
  *
  * @author shan
  */
-public class AddNewCustomer extends JPanel implements ActionListener{
+public class AddNewCustomer extends JPanel implements ActionListener {
 
     private CommonWindowUtilities comUtil;
     private JPanel base;
@@ -45,16 +45,15 @@ public class AddNewCustomer extends JPanel implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource() == bAddCustomer) {
-                CustomerDAO customerDAO = new CustomerDAOImpl();
-                Customer c = new Customer();
-                c.setCusName(tCustomerName.getText());
-                try {
-                    customerDAO.addCustomer(c);
-                } catch (Exception ex) {
-                }
-                comUtil.clearMainBody();
+        if (ae.getSource() == bAddCustomer) {
+            CustomerDAO customerDAO = new CustomerDAOImpl();
+            Customer c = new Customer();
+            c.setCusName(tCustomerName.getText());
+            try {
+                customerDAO.addCustomer(c);
+            } catch (Exception ex) {
             }
+            comUtil.clearMainBody();
+        }
     }
-
 }

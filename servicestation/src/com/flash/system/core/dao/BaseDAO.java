@@ -1,6 +1,7 @@
 package com.flash.system.core.dao;
 
 import com.flash.system.core.entity.Customer;
+import com.flash.system.core.entity.EmployeeType;
 import java.util.logging.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -17,7 +18,11 @@ public class BaseDAO {
     private static final Logger log = Logger.getAnonymousLogger();
     @SuppressWarnings("unchecked")
     private static final ThreadLocal session = new ThreadLocal();
-    private static final SessionFactory sessionFactory = new AnnotationConfiguration().addPackage("com.flash.system.core.entity").addAnnotatedClass(Customer.class).configure().buildSessionFactory();
+    private static final SessionFactory sessionFactory = new AnnotationConfiguration()
+            .addPackage("com.flash.system.core.entity")
+            .addAnnotatedClass(Customer.class)
+            .addAnnotatedClass(EmployeeType.class)
+            .configure().buildSessionFactory();
 
     @SuppressWarnings("unchecked")
     public static Session getSession() {
