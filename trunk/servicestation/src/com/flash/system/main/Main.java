@@ -26,34 +26,34 @@ public class Main {
 
     public static void main(String args[]) {
 
-        System.out.println("Running DB queries...");
-
-        AnnotationConfiguration config = new AnnotationConfiguration();
-        config.addAnnotatedClass(Account.class);
-        config.addAnnotatedClass(Bill.class);
-        config.addAnnotatedClass(Customer.class);
-        config.addAnnotatedClass(Employee.class);
-        config.addAnnotatedClass(EmployeeType.class);
-        config.addAnnotatedClass(Item.class);
-        config.addAnnotatedClass(Job.class);
-        config.addAnnotatedClass(Order.class);
-        config.addAnnotatedClass(PreOrder.class);
-        config.addAnnotatedClass(Repair.class);
-        config.addAnnotatedClass(Service.class);
-        config.addAnnotatedClass(Supplier.class);
-        config.addAnnotatedClass(Vehicle.class);
-        config.configure();
-
-        new SchemaExport(config).create(true, true);
-
-//        System.out.println("Application Starting...");
+//        System.out.println("Running DB queries...");
 //
-//        SwingUtilities.invokeLater(new Runnable() {
-//            public void run() {
-//                MainWindow mainWindow = new MainWindow();
-//                mainWindow.setVisible(true);
-//            }
-//        });
+//        AnnotationConfiguration config = new AnnotationConfiguration();
+//        config.addAnnotatedClass(Account.class);
+//        config.addAnnotatedClass(Bill.class);
+//        config.addAnnotatedClass(Customer.class);
+//        config.addAnnotatedClass(Employee.class);
+//        config.addAnnotatedClass(EmployeeType.class);
+//        config.addAnnotatedClass(Item.class);
+//        config.addAnnotatedClass(Job.class);
+//        config.addAnnotatedClass(Order.class);
+//        config.addAnnotatedClass(PreOrder.class);
+//        config.addAnnotatedClass(Repair.class);
+//        config.addAnnotatedClass(Service.class);
+//        config.addAnnotatedClass(Supplier.class);
+//        config.addAnnotatedClass(Vehicle.class);
+//        config.configure();
+//
+//        new SchemaExport(config).create(true, true);
+
+        System.out.println("Application Starting...");
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.setVisible(true);
+            }
+        });
         
     }
 
