@@ -1,5 +1,8 @@
 package com.flash.system.view;
 
+import com.flash.system.core.dao.CustomerDAO;
+import com.flash.system.core.entity.Customer;
+import com.flash.system.core.service.CustomerDAOImpl;
 import java.awt.BorderLayout;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -153,7 +156,14 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
 
         menuItemAddCustomer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                JOptionPane.showMessageDialog(null, "Not supported yet.");
+                //JOptionPane.showMessageDialog(null, "Not supported yet.");
+                CustomerDAO customerDAO = new CustomerDAOImpl();
+                Customer c = new Customer();
+                c.setCusName("shan");
+                try {
+                    customerDAO.addCustomer(c);
+                } catch (Exception ex) {
+                }
             }
         });
 

@@ -33,7 +33,7 @@ public class Customer {
         return customerId;
     }
 
-    public void setCusId(Long cusId) {
+    public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
 

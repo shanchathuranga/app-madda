@@ -1,56 +1,68 @@
 package com.flash.system.core.service;
 
+import com.flash.system.core.dao.BaseDAO;
 import com.flash.system.core.dao.CustomerDAO;
 import com.flash.system.core.entity.Customer;
-import com.flash.system.util.HibernateUtil;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
-import org.hibernate.Session;
 
 /**
  *
  * @author shan
  */
-public class CustomerDAOImpl implements CustomerDAO {
+public class CustomerDAOImpl extends BaseDAO implements CustomerDAO {
 
-    public void addCustomer(Customer customer) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-        session.beginTransaction();
-        session.save(customer);
-        session.getTransaction().commit();
+    public void addCustomer(Customer customer) throws Exception {
+        try {
+            begin();
+            getSession().save(customer);
+            commit();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
     }
 
-    public void updateCustomer(Customer customer) {
+    public void updateCustomer(Customer customer) throws Exception{
     }
 
-    public void deleteCustomer(Customer customer) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-        session.beginTransaction();
-        session.delete(customer);
-        session.getTransaction().commit();
+    public void deleteCustomer(Customer customer) throws Exception {
+        try {
+            begin();
+            getSession().delete(customer);
+            commit();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
     }
 
-    public Customer findByPrimaryKey(Long customerId) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-        session.beginTransaction();
-        Customer customer = (Customer) session.load(Customer.class, customerId);
-        session.getTransaction().commit();
-
+    public Customer findByPrimaryKey(Long customerId) throws Exception{
+        Customer customer = null;
+        try {
+            begin();
+            customer = (Customer)getSession().load(Customer.class, customerId);
+            commit();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
         return customer;
-
     }
 
-    public List<Customer> findAll() {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        Query query = session.createQuery("from Customer");
-        //query.setFirstResult((pageNumber - 1) * pageSize);
-        //query.setMaxResults(pageSize);
-        List<Customer> customers = query.list();
-        session.getTransaction().commit();
+    public List<Customer> findAll() throws Exception {
+        List<Customer> customers = null;
+        try {
+            begin();
+            Query query = getSession().createQuery("from Customer");
+            customers = query.list();
+            commit();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
         return customers;
     }
+    
 }
