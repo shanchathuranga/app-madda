@@ -45,11 +45,19 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JMenuItem menuItemUpdateUser;
     private JToolBar toolbar;
     private JButton toolExit;
+    private JButton toolNewCustomer;
+    private JButton toolUpdateCustomer;
     private JButton toolNewUser;
     private JButton toolUpdateUser;
+    private JButton toolNewVehicle;
+    private JButton toolUpdateVehicle;
     private JButton toolLogInOut;
-    private JCheckBoxMenuItem toolAddNewUserItem;
+    private JCheckBoxMenuItem toolAddNewCustomerItem;
+    private JCheckBoxMenuItem toolUpdateCustomerItem;
+    private JCheckBoxMenuItem toolAddUserItem;
     private JCheckBoxMenuItem toolUpdateUserItem;
+    private JCheckBoxMenuItem toolAddNewVehicleItem;
+    private JCheckBoxMenuItem toolUpdateVehicleItem;
     public static Map appSession = new HashMap();
     private Stack<JPanel> panelStack;
 
@@ -112,10 +120,19 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemUpdateVehicle = new JMenuItem("Update Vehicle");
         menuItemAddNewUser = new JMenuItem("Add New User");
         menuItemUpdateUser = new JMenuItem("Update User");
-        toolAddNewUserItem = new JCheckBoxMenuItem("show Add New User Icon");
-        toolAddNewUserItem.setState(false);
+
+        toolAddNewCustomerItem = new JCheckBoxMenuItem("show Add New Customer Icon");
+        toolAddNewCustomerItem.setState(false);
+        toolUpdateCustomerItem = new JCheckBoxMenuItem("show Update Customer Icon");
+        toolUpdateCustomerItem.setState(false);
+        toolAddUserItem = new JCheckBoxMenuItem("show Add User Icon");
+        toolAddUserItem.setState(false);
         toolUpdateUserItem = new JCheckBoxMenuItem("show Update User Icon");
         toolUpdateUserItem.setState(false);
+        toolAddNewVehicleItem = new JCheckBoxMenuItem("show Add New Vehicle Icon");
+        toolAddNewVehicleItem.setState(false);
+        toolUpdateVehicleItem = new JCheckBoxMenuItem("show Update Vehicle Icon");
+        toolUpdateVehicleItem.setState(false);
 
         /* Adding Menu Items to Menus */
         menuApp.add(menuUser);
@@ -127,8 +144,12 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuVehicle.add(menuItemUpdateVehicle);
         menuUser.add(menuItemAddNewUser);
         menuUser.add(menuItemUpdateUser);
-        menuToolBar.add(toolAddNewUserItem);
+        menuToolBar.add(toolAddNewCustomerItem);
+        menuToolBar.add(toolUpdateCustomerItem);
+        menuToolBar.add(toolAddUserItem);
         menuToolBar.add(toolUpdateUserItem);
+        menuToolBar.add(toolAddNewVehicleItem);
+        menuToolBar.add(toolUpdateVehicleItem);
 
         /* Adding Menus to the Menubar */
         menubar.add(menuApp);
@@ -206,9 +227,37 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
             }
         });
 
-        ImageIcon newuser = new ImageIcon(getClass().getResource("/com/flash/system/resource/newuser.png"));
+        ImageIcon newCustomerIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/add_customer.png"));
 
-        toolNewUser = new JButton(newuser);
+
+        toolNewCustomer = new JButton(newCustomerIcon);
+        toolNewCustomer.setToolTipText("Create New Customer");
+        toolbar.add(toolNewCustomer);
+        toolNewCustomer.setVisible(false);
+        toolNewCustomer.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent event) {
+                addCustomerBody();
+            }
+        });
+
+        ImageIcon updateCustomerIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/edit_customer.png"));
+
+        toolUpdateCustomer = new JButton(updateCustomerIcon);
+        toolUpdateCustomer.setToolTipText("Update Customer");
+        toolbar.add(toolUpdateCustomer);
+        toolUpdateCustomer.setVisible(false);
+        toolUpdateCustomer.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent event) {
+                JOptionPane.showMessageDialog(null, "Not supported yet.");
+            }
+        });
+
+        ImageIcon addUserIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/add_user"
+                + ".png"));
+
+        toolNewUser = new JButton(addUserIcon);
         toolNewUser.setToolTipText("Create New User");
         toolbar.add(toolNewUser);
         toolNewUser.setVisible(false);
@@ -219,9 +268,9 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
             }
         });
 
-        ImageIcon updateuser = new ImageIcon(getClass().getResource("/com/flash/system/resource/updateuser.png"));
+        ImageIcon updateUserIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/edit_user.png"));
 
-        toolUpdateUser = new JButton(updateuser);
+        toolUpdateUser = new JButton(updateUserIcon);
         toolUpdateUser.setToolTipText("Update User");
         toolbar.add(toolUpdateUser);
         toolUpdateUser.setVisible(false);
@@ -229,6 +278,32 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
 
             public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
+            }
+        });
+
+        ImageIcon addVehicleIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/add_vehicle.png"));
+
+        toolNewVehicle = new JButton(addVehicleIcon);
+        toolNewVehicle.setToolTipText("Add New Vehicle");
+        toolbar.add(toolNewVehicle);
+        toolNewVehicle.setVisible(false);
+        toolNewVehicle.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                JOptionPane.showMessageDialog(null, "Not Supported yet.");
+            }
+        });
+
+        ImageIcon updateVehicleIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/edit_vehicle.png"));
+
+        toolUpdateVehicle = new JButton(updateVehicleIcon);
+        toolUpdateVehicle.setToolTipText("Add New Vehicle");
+        toolbar.add(toolUpdateVehicle);
+        toolUpdateVehicle.setVisible(false);
+        toolUpdateVehicle.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                JOptionPane.showMessageDialog(null, "Not Supported yet.");
             }
         });
 
@@ -255,7 +330,31 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
             }
         });
 
-        toolAddNewUserItem.addActionListener(new ActionListener() {
+        toolAddNewCustomerItem.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent event) {
+                AbstractButton aButton = (AbstractButton) event.getSource();
+                if (aButton.getModel().isSelected()) {
+                    toolNewCustomer.setVisible(true);
+                } else {
+                    toolNewCustomer.setVisible(false);
+                }
+            }
+        });
+
+        toolUpdateCustomerItem.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent event) {
+                AbstractButton aButton = (AbstractButton) event.getSource();
+                if (aButton.getModel().isSelected()) {
+                    toolUpdateCustomer.setVisible(true);
+                } else {
+                    toolUpdateCustomer.setVisible(false);
+                }
+            }
+        });
+
+        toolAddUserItem.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent event) {
                 AbstractButton aButton = (AbstractButton) event.getSource();
@@ -275,6 +374,30 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
                     toolUpdateUser.setVisible(true);
                 } else {
                     toolUpdateUser.setVisible(false);
+                }
+            }
+        });
+
+        toolAddNewVehicleItem.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent event) {
+                AbstractButton aButton = (AbstractButton) event.getSource();
+                if (aButton.getModel().isSelected()) {
+                    toolNewVehicle.setVisible(true);
+                } else {
+                    toolNewVehicle.setVisible(false);
+                }
+            }
+        });
+
+        toolUpdateVehicleItem.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent event) {
+                AbstractButton aButton = (AbstractButton) event.getSource();
+                if (aButton.getModel().isSelected()) {
+                    toolUpdateVehicle.setVisible(true);
+                } else {
+                    toolUpdateVehicle.setVisible(false);
                 }
             }
         });
