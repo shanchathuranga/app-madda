@@ -1,8 +1,5 @@
 package com.flash.system.view;
 
-import com.flash.system.core.dao.CustomerDAO;
-import com.flash.system.core.entity.Customer;
-import com.flash.system.core.service.CustomerDAOImpl;
 import java.awt.BorderLayout;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -30,17 +27,15 @@ import javax.swing.UIManager;
  *
  * @author shan
  */
-public class MainWindow extends JFrame implements CommonWindowUtilities{
+public class MainWindow extends JFrame implements CommonWindowUtilities {
 
     private JPanel base;
     private JMenuBar menubar;
-
     private JMenu menuApp;
     private JMenu menuCustomer;
     private JMenu menuToolBar;
     private JMenu menuVehicle;
     private JMenu menuUser;
-
     private JMenuItem menuItemExit;
     private JMenuItem menuItemAddCustomer;
     private JMenuItem menuItemUpdateCustomer;
@@ -48,17 +43,13 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
     private JMenuItem menuItemUpdateVehicle;
     private JMenuItem menuItemAddNewUser;
     private JMenuItem menuItemUpdateUser;
-
     private JToolBar toolbar;
-
     private JButton toolExit;
     private JButton toolNewUser;
     private JButton toolUpdateUser;
     private JButton toolLogInOut;
-
     private JCheckBoxMenuItem toolAddNewUserItem;
     private JCheckBoxMenuItem toolUpdateUserItem;
-
     public static Map appSession = new HashMap();
     private Stack<JPanel> panelStack;
 
@@ -68,7 +59,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
             System.out.println(ex);
-        }        
+        }
         setDefaultLookAndFeelDecorated(true);
         setLayout(new BorderLayout());
         base = new JPanel();
@@ -81,11 +72,11 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
         initToolBar();
 
         GraphicsDevice gDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-        if(gDevice.isFullScreenSupported()) {
+        if (gDevice.isFullScreenSupported()) {
             setUndecorated(false);
-	    setResizable(false);
-	    gDevice.setFullScreenWindow(this);
-	    validate();
+            setResizable(false);
+            gDevice.setFullScreenWindow(this);
+            validate();
         }
 
         setIconImage(getFDImage());
@@ -149,49 +140,50 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
 
     private void initMenuActions() {
         menuItemExit.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent ae) {
-                System.exit(0);System.exit(0);
+                System.exit(0);
+                System.exit(0);
             }
         });
 
         menuItemAddCustomer.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent ae) {
-                //JOptionPane.showMessageDialog(null, "Not supported yet.");
-                CustomerDAO customerDAO = new CustomerDAOImpl();
-                Customer c = new Customer();
-                c.setCusName("shan");
-                try {
-                    customerDAO.addCustomer(c);
-                } catch (Exception ex) {
-                }
+                addCustomerBody();
             }
         });
 
         menuItemUpdateCustomer.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent ae) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemRegisterVehicle.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent ae) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemUpdateVehicle.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent ae) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemAddNewUser.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent ae) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemUpdateUser.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent ae) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
@@ -208,10 +200,11 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
         toolExit.setToolTipText("Application Exit");
         toolbar.add(toolExit);
         toolExit.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent event) {
                 System.exit(0);
             }
-        });   
+        });
 
         ImageIcon newuser = new ImageIcon(getClass().getResource("/com/flash/system/resource/newuser.png"));
 
@@ -220,6 +213,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
         toolbar.add(toolNewUser);
         toolNewUser.setVisible(false);
         toolNewUser.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
@@ -232,6 +226,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
         toolbar.add(toolUpdateUser);
         toolUpdateUser.setVisible(false);
         toolUpdateUser.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
@@ -242,15 +237,15 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
         toolbar.add(toolLogInOut);
 
         toolLogInOut.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent ae) {
-                if(MainWindow.appSession.containsKey("USERNAME")) {
+                if (MainWindow.appSession.containsKey("USERNAME")) {
                     int n = JOptionPane.showConfirmDialog(
-                                    null,
-                                    "You are going to logout. Are you sure ?",
-                                    "You are going to logout",
-                                    JOptionPane.YES_NO_OPTION
-                                );
-                    if(n == JOptionPane.YES_OPTION) {
+                            null,
+                            "You are going to logout. Are you sure ?",
+                            "You are going to logout",
+                            JOptionPane.YES_NO_OPTION);
+                    if (n == JOptionPane.YES_OPTION) {
                         getLogInOut().setText("Log In");
                         MainWindow.appSession.remove("USERNAME");
                     }
@@ -261,9 +256,10 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
         });
 
         toolAddNewUserItem.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent event) {
                 AbstractButton aButton = (AbstractButton) event.getSource();
-                if(aButton.getModel().isSelected()) {
+                if (aButton.getModel().isSelected()) {
                     toolNewUser.setVisible(true);
                 } else {
                     toolNewUser.setVisible(false);
@@ -272,9 +268,10 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
         });
 
         toolUpdateUserItem.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent event) {
                 AbstractButton aButton = (AbstractButton) event.getSource();
-                if(aButton.getModel().isSelected()) {
+                if (aButton.getModel().isSelected()) {
                     toolUpdateUser.setVisible(true);
                 } else {
                     toolUpdateUser.setVisible(false);
@@ -291,6 +288,14 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
         base.validate();
     }
 
+    private void addCustomerBody() {
+        base.removeAll();
+        AddNewCustomer addNewCustomer = new AddNewCustomer(this);
+        panelStack.push(addNewCustomer);
+        base.add(addNewCustomer);
+        base.validate();
+    }
+
     private void clearBody() {
         base.remove(panelStack.pop());
         base.repaint();
@@ -304,5 +309,4 @@ public class MainWindow extends JFrame implements CommonWindowUtilities{
     public JButton getLogInOut() {
         return toolLogInOut;
     }
-
 }
