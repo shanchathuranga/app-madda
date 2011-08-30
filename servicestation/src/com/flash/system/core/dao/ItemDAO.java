@@ -9,10 +9,13 @@ import java.util.List;
  */
 public interface ItemDAO {
 
-    public void addItem(Item customer);
-    public void updateItem(Item customer);
-    public void deleteItem(Item customer);
-    public Item findByPrimaryKey(Long id);
-    public List<Item> findAll();
+    public void addItem(Item customer) throws Exception;
 
+    public void updateItem(Item customer) throws Exception;
+
+    public void deleteItem(Item customer) throws Exception;
+
+    public Item findByPrimaryKey(Long id) throws Exception;
+
+    public List<Item> findAll() throws Exception;
 }

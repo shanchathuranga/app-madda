@@ -5,6 +5,7 @@
 
 package com.flash.system.core.entity;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,8 @@ import javax.persistence.Id;
 public class Bill {
 
     private long billId;
+    private String customerName;
+    private Date billDate;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,6 +30,22 @@ public class Bill {
 
     public void setBillId(long billId) {
         this.billId = billId;
+    }
+
+    public Date getBillDate() {
+        return billDate;
+    }
+
+    public void setBillDate(Date billDate) {
+        this.billDate = billDate;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
 

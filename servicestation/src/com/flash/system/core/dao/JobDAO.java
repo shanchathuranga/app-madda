@@ -9,10 +9,13 @@ import java.util.List;
  */
 public interface JobDAO {
 
-    public void addJob(Job customer);
-    public void updateJob(Job customer);
-    public void deleteJob(Job customer);
-    public Job findByPrimaryKey(Long id);
-    public List<Job> findAll();
+    public void addJob(Job customer) throws Exception;
 
+    public void updateJob(Job customer) throws Exception;
+
+    public void deleteJob(Job customer) throws Exception;
+
+    public Job findByPrimaryKey(Long id) throws Exception;
+
+    public List<Job> findAll() throws Exception;
 }

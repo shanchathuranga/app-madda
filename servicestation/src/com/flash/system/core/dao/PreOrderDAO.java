@@ -9,10 +9,13 @@ import java.util.List;
  */
 public interface PreOrderDAO {
 
-    public void addPreOrder(PreOrder customer);
-    public void updatePreOrder(PreOrder customer);
-    public void deletePreOrder(PreOrder customer);
-    public PreOrder findByPrimaryKey(Long id);
-    public List<PreOrder> findAll();
+    public void addPreOrder(PreOrder customer) throws Exception;
 
+    public void updatePreOrder(PreOrder customer) throws Exception;
+
+    public void deletePreOrder(PreOrder customer) throws Exception;
+
+    public PreOrder findByPrimaryKey(Long id) throws Exception;
+
+    public List<PreOrder> findAll() throws Exception;
 }

@@ -18,6 +18,7 @@ import javax.persistence.Id;
 public class Item {
 
     private long itemId;
+    private String itemName;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -29,6 +30,15 @@ public class Item {
         this.itemId = itemId;
     }
 
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    
 
 
 }

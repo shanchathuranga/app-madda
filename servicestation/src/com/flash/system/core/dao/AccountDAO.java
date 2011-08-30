@@ -9,10 +9,13 @@ import java.util.List;
  */
 public interface AccountDAO {
 
-    public void addAccount(Account customer);
-    public void updateAccount(Account customer);
-    public void deleteAccount(Account customer);
-    public Account findByPrimaryKey(Long id);
-    public List<Account> findAll();
+    public void addAccount(Account customer) throws Exception;
 
+    public void updateAccount(Account customer) throws Exception;
+
+    public void deleteAccount(Account customer) throws Exception;
+
+    public Account findByPrimaryKey(Long id) throws Exception;
+
+    public List<Account> findAll() throws Exception;
 }

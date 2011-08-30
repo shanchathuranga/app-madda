@@ -18,6 +18,7 @@ import javax.persistence.Id;
 public class Job {
 
     private long jobId;
+    private String jobType;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,6 +28,14 @@ public class Job {
 
     public void setJobId(long jobId) {
         this.jobId = jobId;
+    }
+
+    public String getJobType() {
+        return jobType;
+    }
+
+    public void setJobType(String jobType) {
+        this.jobType = jobType;
     }
 
 

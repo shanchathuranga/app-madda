@@ -18,6 +18,7 @@ import javax.persistence.Id;
 public class PreOrder {
 
     private int preOrderId;
+    private String preOrderName;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,6 +28,14 @@ public class PreOrder {
 
     public void setPreOrderId(int preOrderId) {
         this.preOrderId = preOrderId;
+    }
+
+    public String getPreOrderName() {
+        return preOrderName;
+    }
+
+    public void setPreOrderName(String preOrderName) {
+        this.preOrderName = preOrderName;
     }
 
 
