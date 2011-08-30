@@ -9,10 +9,13 @@ import java.util.List;
  */
 public interface RepairDAO {
 
-    public void addRepair(Repair customer);
-    public void updateRepair(Repair customer);
-    public void deleteRepair(Repair customer);
-    public Repair findByPrimaryKey(Long id);
-    public List<Repair> findAll();
+    public void addRepair(Repair customer) throws Exception;
 
+    public void updateRepair(Repair customer) throws Exception;
+
+    public void deleteRepair(Repair customer) throws Exception;
+
+    public Repair findByPrimaryKey(Long id) throws Exception;
+
+    public List<Repair> findAll() throws Exception;
 }

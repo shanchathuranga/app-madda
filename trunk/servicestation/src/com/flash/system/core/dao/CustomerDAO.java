@@ -10,9 +10,12 @@ import java.util.List;
 public interface CustomerDAO {
 
     public void addCustomer(Customer customer) throws Exception;
-    public void updateCustomer(Customer customer) throws Exception;
-    public void deleteCustomer(Customer customer) throws Exception;
-    public Customer findByPrimaryKey(Long id) throws Exception;
-    public List<Customer> findAll() throws Exception;
 
+    public void updateCustomer(Customer customer) throws Exception;
+
+    public void deleteCustomer(Customer customer) throws Exception;
+
+    public Customer findByPrimaryKey(Long id) throws Exception;
+
+    public List<Customer> findAll() throws Exception;
 }

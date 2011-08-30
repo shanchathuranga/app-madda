@@ -18,6 +18,7 @@ import javax.persistence.Id;
 public class Order {
 
     private Long orderId;
+    private String orderName;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,6 +28,14 @@ public class Order {
 
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
+    }
+
+    public String getOrderName() {
+        return orderName;
+    }
+
+    public void setOrderName(String orderName) {
+        this.orderName = orderName;
     }
 
 

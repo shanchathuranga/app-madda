@@ -39,11 +39,11 @@ public class EmployeeTypeDAOImpl extends BaseDAO implements EmployeeTypeDAO {
         }
     }
 
-    public EmployeeType findByPrimaryKey(int empCode) throws Exception {
+    public EmployeeType findByPrimaryKey(int EmployeeTypeId) throws Exception {
         EmployeeType customer = null;
         try {
             begin();
-            customer = (EmployeeType)getSession().load(EmployeeType.class, empCode);
+            customer = (EmployeeType) getSession().load(EmployeeType.class, EmployeeTypeId);
             commit();
         } catch (HibernateException e) {
             rollback();
@@ -53,17 +53,16 @@ public class EmployeeTypeDAOImpl extends BaseDAO implements EmployeeTypeDAO {
     }
 
     public List<EmployeeType> findAll() throws Exception {
-        List<EmployeeType> customers = null;
+        List<EmployeeType> employeeTyps = null;
         try {
             begin();
-            Query query = getSession().createQuery("from Customer");
-            customers = query.list();
+            Query query = getSession().createQuery("from EmployeeType");
+            employeeTyps = query.list();
             commit();
         } catch (HibernateException e) {
             rollback();
             throw new Exception(e.getCause().getMessage());
         }
-        return customers;
+        return employeeTyps;
     }
-
 }

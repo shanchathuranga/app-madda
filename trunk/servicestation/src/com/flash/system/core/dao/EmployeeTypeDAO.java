@@ -10,9 +10,12 @@ import java.util.List;
 public interface EmployeeTypeDAO {
 
     public void addEmployeeType(EmployeeType empType) throws Exception;
+
     public void updateEmployeeType(EmployeeType empType) throws Exception;
+
     public void deleteEmployeeType(EmployeeType empType) throws Exception;
+
     public EmployeeType findByPrimaryKey(int empCode) throws Exception;
+
     public List<EmployeeType> findAll() throws Exception;
-    
 }

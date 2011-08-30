@@ -9,10 +9,13 @@ import java.util.List;
  */
 public interface EmployeeDAO {
 
-    public void addEmployee(Employee customer);
-    public void updateEmployee(Employee customer);
-    public void deleteEmployee(Employee customer);
-    public Employee findByPrimaryKey(Long id);
-    public List<Employee> findAll();
+    public void addEmployee(Employee customer) throws Exception;
 
+    public void updateEmployee(Employee customer) throws Exception;
+
+    public void deleteEmployee(Employee customer) throws Exception;
+
+    public Employee findByPrimaryKey(Long id) throws Exception;
+
+    public List<Employee> findAll() throws Exception;
 }
