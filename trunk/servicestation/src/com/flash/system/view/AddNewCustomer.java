@@ -3,6 +3,7 @@ package com.flash.system.view;
 import com.flash.system.core.dao.CustomerDAO;
 import com.flash.system.core.entity.Customer;
 import com.flash.system.core.service.CustomerDAOImpl;
+import com.flash.system.logic.CustomerMgtService;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -165,10 +167,13 @@ public class AddNewCustomer extends JPanel implements ActionListener {
 
         bAddCustomer = new JButton(" Add ");
         bAddCustomer.setPreferredSize(new Dimension(96, 50));
+        bAddCustomer.addActionListener(this);
         bSaveCustomer = new JButton(" Save ");
         bSaveCustomer.setPreferredSize(new Dimension(96, 50));
+        bSaveCustomer.addActionListener(this);
         bClearCustomer = new JButton(" Clear ");
         bClearCustomer.setPreferredSize(new Dimension(96, 50));
+        bClearCustomer.addActionListener(this);
 
         base.add(lCaption, "cell 0 0 4 1");
         base.add(lVehicleRegNo, "cell 0 1");
@@ -217,14 +222,27 @@ public class AddNewCustomer extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == bAddCustomer) {
-            CustomerDAO customerDAO = new CustomerDAOImpl();
-            Customer c = new Customer();
-            c.setCustomerFName(tCustomerFName.getText());
-
-            try {
-                customerDAO.addCustomer(c);
-            } catch (Exception ex) {
-            }
+            CustomerMgtService customerMgtService =
+                    new CustomerMgtService();
+            String result = customerMgtService.addNewCustomer(
+                    tVehicleRegNo.getText(),
+                    tCustomerFName.getText(),
+                    tCustomerLName.getText(),
+                    tCustomerNIC.getText(),
+                    tCustomerDL.getText(),
+                    tAddrHome.getText(),
+                    tAddrOffice.getText(),
+                    tAddrOther.getText(),
+                    tMobileTP.getText(),
+                    tHomeTP.getText(),
+                    tOfficeTP.getText(),
+                    tFax.getText(),
+                    tEmail.getText(),
+                    tWebsite.getText(),
+                    cState.getSelectedIndex(),
+                    cType.getSelectedIndex()
+                    );
+            JOptionPane.showMessageDialog(null, result);
             comUtil.clearMainBody();
         }
     }
