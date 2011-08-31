@@ -1,5 +1,6 @@
 package com.flash.system.core.entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,22 +11,36 @@ import javax.persistence.Id;
  * @author tharindu
  */
 @Entity
-public class Customer {
+public class Customer implements Serializable {
 
-    private Long customerId;    /* Unique ID for custormer   */
-    private String vehRegNo;    /* vehical registration No   */
-    private String cusName;     /* Customer Name             */
-    private String cusNICNo;    /* National ID No            */
-    private String cusDriLicNo; /* Driving Licen No          */
-    private String address1;
-    private String address2;
-    private String address3;
-    private String tpMobile;    /* Mobile phone No           */
+    private Long customerId;        /* Unique ID for custormer   */
+    private String vehicleRegNo;    /* vehical registration No   */
+    private String customerFName;   /* Customer First Name       */
+    private String customerLName;   /* Customer Last Name        */
+    private String customerNICNo;   /* National ID No            */
+    private String customerDLNo;    /* Driving Licen No          */
+    private String addressHome;
+    private String addressOffice;
+    private String addressOther;
+    private String tpMobile;        /* Mobile phone No           */
     private String tpHome;
     private String tpOffice;
     private String fax;
     private String email;
-    private String weburl;
+    private String website;
+    private int customerState;      /* enum State                */
+    private int customerType;       /* enum CustomerType         */
+
+    public enum State {
+        ACTIVE,
+        INACTIVE,
+        DELETED
+    }
+
+    public enum CustomerType {
+        PERSONAL,
+        ORGANIZATION
+    }
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -37,52 +52,60 @@ public class Customer {
         this.customerId = customerId;
     }
 
-    public String getAddress1() {
-        return address1;
+    public String getAddressHome() {
+        return addressHome;
     }
 
-    public void setAddress1(String address1) {
-        this.address1 = address1;
+    public void setAddressHome(String addressHome) {
+        this.addressHome = addressHome;
     }
 
-    public String getAddress2() {
-        return address2;
+    public String getAddressOffice() {
+        return addressOffice;
     }
 
-    public void setAddress2(String address2) {
-        this.address2 = address2;
+    public void setAddressOffice(String addressOffice) {
+        this.addressOffice = addressOffice;
     }
 
-    public String getAddress3() {
-        return address3;
+    public String getAddressOther() {
+        return addressOther;
     }
 
-    public void setAddress3(String address3) {
-        this.address3 = address3;
+    public void setAddressOther(String addressOther) {
+        this.addressOther = addressOther;
     }
 
-    public String getCusDriLicNo() {
-        return cusDriLicNo;
+    public String getCustomerDLNo() {
+        return customerDLNo;
     }
 
-    public void setCusDriLicNo(String cusDriLicNo) {
-        this.cusDriLicNo = cusDriLicNo;
+    public void setCustomerDLNo(String customerDLNo) {
+        this.customerDLNo = customerDLNo;
     }
 
-    public String getCusNICNo() {
-        return cusNICNo;
+    public String getCustomerFName() {
+        return customerFName;
     }
 
-    public void setCusNICNo(String cusNICNo) {
-        this.cusNICNo = cusNICNo;
+    public void setCustomerFName(String customerFName) {
+        this.customerFName = customerFName;
     }
 
-    public String getCusName() {
-        return cusName;
+    public String getCustomerLName() {
+        return customerLName;
     }
 
-    public void setCusName(String cusName) {
-        this.cusName = cusName;
+    public void setCustomerLName(String customerLName) {
+        this.customerLName = customerLName;
+    }
+
+    public String getCustomerNICNo() {
+        return customerNICNo;
+    }
+
+    public void setCustomerNICNo(String customerNICNo) {
+        this.customerNICNo = customerNICNo;
     }
 
     public String getEmail() {
@@ -125,20 +148,36 @@ public class Customer {
         this.tpOffice = tpOffice;
     }
 
-    public String getVehRegNo() {
-        return vehRegNo;
+    public String getVehicleRegNo() {
+        return vehicleRegNo;
     }
 
-    public void setVehRegNo(String vehRegNo) {
-        this.vehRegNo = vehRegNo;
+    public void setVehicleRegNo(String vehicleRegNo) {
+        this.vehicleRegNo = vehicleRegNo;
     }
 
-    public String getWeburl() {
-        return weburl;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setWeburl(String weburl) {
-        this.weburl = weburl;
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public int getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(int customerType) {
+        this.customerType = customerType;
+    }
+
+    public int getCustomerState() {
+        return customerState;
+    }
+
+    public void setCustomerState(int customerState) {
+        this.customerState = customerState;
     }
 
 }
