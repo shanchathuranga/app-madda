@@ -2,15 +2,20 @@ package com.flash.system.view;
 
 import com.flash.system.core.entity.Customer;
 import com.flash.system.logic.CustomerMgtService;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;
@@ -23,6 +28,7 @@ public class AddNewCustomer extends JPanel implements ActionListener {
 
     private CommonWindowUtilities comUtil;
     private JPanel base;
+    private JPanel areaPanel;
     private JLabel lCaption;
     private JLabel lVehicleRegNo;
     private JLabel lCustomerFName;
@@ -55,7 +61,8 @@ public class AddNewCustomer extends JPanel implements ActionListener {
     private JTextField tFax;
     private JTextField tEmail;
     private JTextField tWebsite;
-    private JTextField tNote;
+    private JTextArea tNote;
+    private JScrollPane scrollPane;
     private JComboBox cState;
     private JComboBox cType;
     private JButton bAddCustomer;
@@ -152,8 +159,19 @@ public class AddNewCustomer extends JPanel implements ActionListener {
         tEmail.setPreferredSize(new Dimension(300, 30));
         tWebsite = new JTextField();
         tWebsite.setPreferredSize(new Dimension(300, 30));
-        tNote = new JTextField();
-        tNote.setPreferredSize(new Dimension(300, 30));
+        tNote = new JTextArea();
+        scrollPane = new JScrollPane();
+        areaPanel = new JPanel(new BorderLayout());
+
+        tNote.setLineWrap(true);
+        tNote.setWrapStyleWord(true);
+        tNote.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+
+        scrollPane.getViewport().add(tNote);
+        scrollPane.setVerticalScrollBar(new JScrollBar());
+        
+        areaPanel.add(scrollPane);
+        areaPanel.setPreferredSize(new Dimension(300, 90));
 
         cState = new JComboBox();
         cState.addItem(Customer.State.ACTIVE);
@@ -188,9 +206,9 @@ public class AddNewCustomer extends JPanel implements ActionListener {
         base.add(lFax, "cell 0 12");
         base.add(lEmail, "cell 0 13");
         base.add(lWebsite, "cell 0 14");
-        base.add(lNote, "cell 2 1");
-        base.add(lState, "cell 2 2");
-        base.add(lType, "cell 2 3");
+        base.add(lNote, "cell 2 2");
+        base.add(lState, "cell 2 4");
+        base.add(lType, "cell 2 5");
 
         base.add(tVehicleRegNo, "cell 1 1");
         base.add(tCustomerFName, "cell 1 2");
@@ -206,12 +224,12 @@ public class AddNewCustomer extends JPanel implements ActionListener {
         base.add(tFax, "cell 1 12");
         base.add(tEmail, "cell 1 13");
         base.add(tWebsite, "cell 1 14");
-        base.add(tNote, "cell 3 1");
+        base.add(areaPanel, "cell 3 1, span 1 3");
 
-        base.add(cState, "cell 3 2");
-        base.add(cType, "cell 3 3");
+        base.add(cState, "cell 3 4");
+        base.add(cType, "cell 3 5");
 
-        base.add(bAddCustomer, "cell 3 5, split 3");
+        base.add(bAddCustomer, "cell 3 6, span 1 2, split 3");
         base.add(bSaveCustomer);
         base.add(bClearCustomer);
 
