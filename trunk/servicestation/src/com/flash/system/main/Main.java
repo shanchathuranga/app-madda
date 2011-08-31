@@ -14,6 +14,9 @@ import com.flash.system.core.entity.Repair;
 import com.flash.system.core.entity.Service;
 import com.flash.system.core.entity.Supplier;
 import com.flash.system.core.entity.Vehicle;
+import com.flash.system.core.entity.VehicleCategory;
+import com.flash.system.core.entity.VehicleModel;
+import com.flash.system.core.entity.VehicleType;
 import com.flash.system.view.MainWindow;
 import javax.swing.SwingUtilities;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -44,6 +47,10 @@ public class Main {
 //        config.addAnnotatedClass(Service.class);
 //        config.addAnnotatedClass(Supplier.class);
 //        config.addAnnotatedClass(Vehicle.class);
+//        config.addAnnotatedClass(VehicleCategory.class);
+//        config.addAnnotatedClass(VehicleModel.class);
+//        config.addAnnotatedClass(VehicleType.class);
+//
 //        config.configure();
 //
 //        new SchemaExport(config).create(true, true);
