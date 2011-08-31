@@ -1,8 +1,6 @@
 package com.flash.system.view;
 
-import com.flash.system.core.dao.CustomerDAO;
 import com.flash.system.core.entity.Customer;
-import com.flash.system.core.service.CustomerDAOImpl;
 import com.flash.system.logic.CustomerMgtService;
 import java.awt.Dimension;
 import java.awt.Font;
