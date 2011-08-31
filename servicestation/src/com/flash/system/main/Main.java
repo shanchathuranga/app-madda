@@ -27,8 +27,8 @@ public class Main {
 
     public static void main(String args[]) {
 
-//        System.out.println("Running DB queries...");
-//
+        System.out.println("Running DB queries...");
+
 //        AnnotationConfiguration config = new AnnotationConfiguration();
 //        config.addAnnotatedClass(Account.class);
 //        config.addAnnotatedClass(Bill.class);
@@ -56,7 +56,7 @@ public class Main {
                 mainWindow.setVisible(true);
             }
         });
-        
+
     }
 
 }
