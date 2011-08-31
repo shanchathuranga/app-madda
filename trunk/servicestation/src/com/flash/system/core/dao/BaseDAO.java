@@ -29,16 +29,31 @@ public class BaseDAO {
     private static final Logger log = Logger.getAnonymousLogger();
     @SuppressWarnings("unchecked")
     private static final ThreadLocal session = new ThreadLocal();
-    private static final SessionFactory sessionFactory = new AnnotationConfiguration().addPackage("com.flash.system.core.entity").addAnnotatedClass(Account.class).addAnnotatedClass(Bill.class).addAnnotatedClass(Customer.class).addAnnotatedClass(Employee.class).addAnnotatedClass(EmployeeType.class).addAnnotatedClass(Item.class).addAnnotatedClass(Job.class).addAnnotatedClass(Order.class).addAnnotatedClass(PreOrder.class).addAnnotatedClass(Repair.class).addAnnotatedClass(Service.class).addAnnotatedClass(Supplier.class).addAnnotatedClass(Vehicle.class).configure().buildSessionFactory();
+    private static final SessionFactory sessionFactory = new AnnotationConfiguration()
+            .addPackage("com.flash.system.core.entity")
+            .addAnnotatedClass(Account.class)
+            .addAnnotatedClass(Bill.class)
+            .addAnnotatedClass(Customer.class)
+            .addAnnotatedClass(Employee.class)
+            .addAnnotatedClass(EmployeeType.class)
+            .addAnnotatedClass(Item.class)
+            .addAnnotatedClass(Job.class)
+            .addAnnotatedClass(Order.class)
+            .addAnnotatedClass(PreOrder.class)
+            .addAnnotatedClass(Repair.class)
+            .addAnnotatedClass(Service.class)
+            .addAnnotatedClass(Supplier.class)
+            .addAnnotatedClass(Vehicle.class)
+            .configure().buildSessionFactory();
 
     @SuppressWarnings("unchecked")
     public static Session getSession() {
-        Session session = (Session) BaseDAO.session.get();
-        if (session == null) {
-            session = sessionFactory.openSession();
-            BaseDAO.session.set(session);
+        Session sessionTemp = (Session) BaseDAO.session.get();
+        if (sessionTemp == null) {
+            sessionTemp = sessionFactory.openSession();
+            BaseDAO.session.set(sessionTemp);
         }
-        return session;
+        return sessionTemp;
     }
 
     protected void begin() {
