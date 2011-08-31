@@ -41,10 +41,12 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JMenuItem menuItemUpdateCustomer;
     private JMenuItem menuItemRegisterVehicle;
     private JMenuItem menuItemUpdateVehicle;
+    private JMenuItem menuItemAddNewVehicleModel;
+    private JMenuItem menuItemAddNewVehicleCategory;
+    private JMenuItem menuItemAddNewVehicleType;
     private JMenuItem menuItemAddNewUser;
     private JMenuItem menuItemUpdateUser;
     private JMenuItem menuItemAddNewUserType;
-
     private JToolBar toolbar;
     private JButton toolExit;
     private JButton toolNewCustomer;
@@ -120,6 +122,9 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemUpdateCustomer = new JMenuItem("Update Customer");
         menuItemRegisterVehicle = new JMenuItem("Register Vehicle");
         menuItemUpdateVehicle = new JMenuItem("Update Vehicle");
+        menuItemAddNewVehicleModel = new JMenuItem("Add Vehicle Model");
+        menuItemAddNewVehicleCategory = new JMenuItem("Add Vehicle Category");
+        menuItemAddNewVehicleType = new JMenuItem("Add Vehicle Type");
         menuItemAddNewUser = new JMenuItem("Add New User");
         menuItemUpdateUser = new JMenuItem("Update User");
         menuItemAddNewUserType = new JMenuItem("Add New User Type");
@@ -145,6 +150,9 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuCustomer.add(menuItemUpdateCustomer);
         menuVehicle.add(menuItemRegisterVehicle);
         menuVehicle.add(menuItemUpdateVehicle);
+        menuVehicle.add(menuItemAddNewVehicleModel);
+        menuVehicle.add(menuItemAddNewVehicleCategory);
+        menuVehicle.add(menuItemAddNewVehicleType);
         menuUser.add(menuItemAddNewUser);
         menuUser.add(menuItemUpdateUser);
         menuUser.add(menuItemAddNewUserType);
@@ -197,6 +205,27 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
 
             public void actionPerformed(ActionEvent ae) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
+            }
+        });
+
+        menuItemAddNewVehicleModel.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                addNewVehicleModelBody();
+            }
+        });
+
+        menuItemAddNewVehicleCategory.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                addNewVehicleCategoryBody();
+            }
+        });
+
+        menuItemAddNewVehicleType.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                addNewVehicleTypeBody();
             }
         });
 
@@ -438,6 +467,30 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         AddNewUserType addNewUserType = new AddNewUserType(this);
         panelStack.push(addNewUserType);
         base.add(addNewUserType);
+        base.validate();
+    }
+
+    private void addNewVehicleModelBody() {
+        base.removeAll();
+        AddNewVehicleModel vehModel = new AddNewVehicleModel(this);
+        panelStack.push(vehModel);
+        base.add(vehModel);
+        base.validate();
+    }
+
+    private void addNewVehicleCategoryBody() {
+        base.removeAll();
+        AddNewVehicleCategory vehCategory = new AddNewVehicleCategory(this);
+        panelStack.push(vehCategory);
+        base.add(vehCategory);
+        base.validate();
+    }
+
+    private void addNewVehicleTypeBody() {
+        base.removeAll();
+        AddNewVehicleType vehType = new AddNewVehicleType(this);
+        panelStack.push(vehType);
+        base.add(vehType);
         base.validate();
     }
 
