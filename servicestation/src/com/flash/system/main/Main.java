@@ -37,6 +37,7 @@ public class Main {
 //        config.addAnnotatedClass(Item.class);
 //        config.addAnnotatedClass(Job.class);
 //        config.addAnnotatedClass(Order.class);
+//        config.addAnnotatedClass(Permission.class);
 //        config.addAnnotatedClass(PreOrder.class);
 //        config.addAnnotatedClass(Repair.class);
 //        config.addAnnotatedClass(Service.class);
