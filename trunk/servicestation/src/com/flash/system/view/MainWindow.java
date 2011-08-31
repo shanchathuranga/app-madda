@@ -334,6 +334,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
                     if (n == JOptionPane.YES_OPTION) {
                         getLogInOut().setText("Log In");
                         MainWindow.appSession.remove("USERNAME");
+                        clearBody();
                     }
                 } else {
                     loginBody();
@@ -441,8 +442,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     }
 
     private void clearBody() {
-        //base.remove(panelStack.pop());
-        base.removeAll();
+        base.remove(panelStack.pop());
+        //base.removeAll();
         base.repaint();
         base.validate();
     }

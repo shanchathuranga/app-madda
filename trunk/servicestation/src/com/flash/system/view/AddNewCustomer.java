@@ -166,13 +166,13 @@ public class AddNewCustomer extends JPanel implements ActionListener {
         cType.addItem(Customer.CustomerType.ORGANIZATION);
 
         bAddCustomer = new JButton(" Add ");
-        bAddCustomer.setPreferredSize(new Dimension(96, 50));
+        bAddCustomer.setPreferredSize(new Dimension(96, 40));
         bAddCustomer.addActionListener(this);
         bSaveCustomer = new JButton(" Save ");
-        bSaveCustomer.setPreferredSize(new Dimension(96, 50));
+        bSaveCustomer.setPreferredSize(new Dimension(96, 40));
         bSaveCustomer.addActionListener(this);
         bClearCustomer = new JButton(" Clear ");
-        bClearCustomer.setPreferredSize(new Dimension(96, 50));
+        bClearCustomer.setPreferredSize(new Dimension(96, 40));
         bClearCustomer.addActionListener(this);
 
         base.add(lCaption, "cell 0 0 4 1");
@@ -222,8 +222,7 @@ public class AddNewCustomer extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == bAddCustomer) {
-            CustomerMgtService customerMgtService =
-                    new CustomerMgtService();
+            CustomerMgtService customerMgtService = new CustomerMgtService();
             String result = customerMgtService.addNewCustomer(
                     tVehicleRegNo.getText(),
                     tCustomerFName.getText(),
