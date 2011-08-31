@@ -416,6 +416,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
 
     private void loginBody() {
         base.removeAll();
+        base.repaint();
         LogIn login = new LogIn(this);
         panelStack.push(login);
         base.add(login);
@@ -424,6 +425,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
 
     private void addCustomerBody() {
         base.removeAll();
+        base.repaint();
         AddNewCustomer addNewCustomer = new AddNewCustomer(this);
         panelStack.push(addNewCustomer);
         base.add(addNewCustomer);
@@ -439,7 +441,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     }
 
     private void clearBody() {
-        base.remove(panelStack.pop());
+        //base.remove(panelStack.pop());
+        base.removeAll();
         base.repaint();
         base.validate();
     }

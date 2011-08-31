@@ -1,5 +1,6 @@
 package com.flash.system.core.entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +11,16 @@ import javax.persistence.Id;
  * @author shan
  */
 @Entity
-public class Permission {
+public class Permission implements Serializable {
 
+    public enum Perm {
+        HIGHEST,
+        APPROVE,
+        WRITE,
+        READ,
+        NONE
+    }
+    
     private int permCode;
     private String permName;
 

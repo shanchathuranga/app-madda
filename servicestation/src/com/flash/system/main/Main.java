@@ -8,6 +8,7 @@ import com.flash.system.core.entity.EmployeeType;
 import com.flash.system.core.entity.Item;
 import com.flash.system.core.entity.Job;
 import com.flash.system.core.entity.Order;
+import com.flash.system.core.entity.Permission;
 import com.flash.system.core.entity.PreOrder;
 import com.flash.system.core.entity.Repair;
 import com.flash.system.core.entity.Service;
