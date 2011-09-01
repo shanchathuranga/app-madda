@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.flash.system.logic;
 
 import com.flash.system.core.dao.VehicleCategoryDAO;
@@ -53,10 +48,10 @@ public class VehicleManagerService {
         return "Error";
     }
 
-    public String addNewVehicleCategory() {
-        VehicleCategory vehicleCategory = new VehicleCategory();
+    public String addNewVehicleCategory(String vehicleCategoryName) {
 
-        // populate
+        VehicleCategory vehicleCategory = new VehicleCategory();
+        vehicleCategory.setCategoryName(vehicleCategoryName);
 
         try {
             vehicleCategoryDAO.addVehicleCategory(vehicleCategory);
@@ -68,14 +63,14 @@ public class VehicleManagerService {
         return "Error";
     }
 
-    public String addNewVehicleModel() {
-        VehicleModel vehicleModel = new VehicleModel();
+    public String addNewVehicleModel(String vehicleModelName) {
 
-        // populate
+        VehicleModel vehicleModel = new VehicleModel();
+        vehicleModel.setModelName(vehicleModelName);
 
         try {
             vehicleModelDAO.addVehicleModel(vehicleModel);
-            return "Vehicle Added";
+            return "Vehicle Model Added";
         } catch (Exception ex) {
             Logger.getLogger(CustomerManagerService.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error occured : " + ex);
@@ -83,14 +78,14 @@ public class VehicleManagerService {
         return "Error";
     }
 
-    public String addNewVehicleType() {
+    public String addNewVehicleType(String vehicleTypeName) {
+        
         VehicleType vehicleType = new VehicleType();
-
-        // populate
+        vehicleType.setModelName(vehicleTypeName);
 
         try {
             vehicleTypeDAO.addVehicleType(vehicleType);
-            return "Vehicle Added";
+            return "Vehicle Type Added";
         } catch (Exception ex) {
             Logger.getLogger(CustomerManagerService.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error occured : " + ex);
