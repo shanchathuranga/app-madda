@@ -14,6 +14,9 @@ import com.flash.system.core.entity.Repair;
 import com.flash.system.core.entity.Service;
 import com.flash.system.core.entity.Supplier;
 import com.flash.system.core.entity.Vehicle;
+import com.flash.system.core.entity.VehicleCategory;
+import com.flash.system.core.entity.VehicleModel;
+import com.flash.system.core.entity.VehicleType;
 import java.util.logging.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -46,6 +49,9 @@ public class BaseDAO {
             .addAnnotatedClass(Service.class)
             .addAnnotatedClass(Supplier.class)
             .addAnnotatedClass(Vehicle.class)
+            .addAnnotatedClass(VehicleCategory.class)
+            .addAnnotatedClass(VehicleModel.class)
+            .addAnnotatedClass(VehicleType.class)
             .configure().buildSessionFactory();
 
     @SuppressWarnings("unchecked")
