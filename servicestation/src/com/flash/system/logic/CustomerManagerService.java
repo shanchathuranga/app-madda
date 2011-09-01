@@ -10,26 +10,18 @@ import java.util.logging.Logger;
  *
  * @author sampath
  */
-public class CustomerMgtService {
+public class CustomerManagerService {
 
-    public String addNewCustomer (
-            String vehicleRegNo,
-            String customerFName,
-            String customerLName,
-            String customerNICNo,
-            String customerDLNo,
-            String addressHome,
-            String addressOffice,
-            String addressOther,
-            String tpMobile,
-            String tpHome,
-            String tpOffice,
-            String fax,
-            String email,
-            String website,
-            int customerState,
-            int customerType
-            ) {
+    private CustomerDAO customerDAO;
+
+    public CustomerManagerService() {
+        customerDAO = new CustomerDAOImpl();
+    }
+
+    public String addNewCustomer(String vehicleRegNo, String customerFName, String customerLName,
+            String customerNICNo, String customerDLNo, String addressHome, String addressOffice,
+            String addressOther, String tpMobile, String tpHome, String tpOffice, String fax,
+            String email, String website, int customerState, int customerType) {
 
         Customer customer = new Customer();
         customer.setVehicleRegNo(vehicleRegNo);
@@ -49,12 +41,11 @@ public class CustomerMgtService {
         customer.setCustomerState(customerState);
         customer.setCustomerType(customerType);
 
-        CustomerDAO customerDAO = new CustomerDAOImpl();
         try {
             customerDAO.addCustomer(customer);
             return "Customer Added";
         } catch (Exception ex) {
-            Logger.getLogger(CustomerMgtService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerManagerService.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error occured : " + ex);
         }
         return "Error";

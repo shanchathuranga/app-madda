@@ -1,7 +1,7 @@
 package com.flash.system.view;
 
 import com.flash.system.core.entity.Customer;
-import com.flash.system.logic.CustomerMgtService;
+import com.flash.system.logic.CustomerManagerService;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -238,7 +238,7 @@ public class AddNewCustomer extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == bAddCustomer) {
-            CustomerMgtService customerMgtService = new CustomerMgtService();
+            CustomerManagerService customerMgtService = new CustomerManagerService();
             String result = customerMgtService.addNewCustomer(
                     tVehicleRegNo.getText(),
                     tCustomerFName.getText(),

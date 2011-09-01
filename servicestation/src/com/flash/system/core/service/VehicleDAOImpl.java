@@ -11,9 +11,9 @@ import org.hibernate.Query;
  *
  * @author shan
  */
-public class VehicleDAOImpl extends BaseDAO implements VehicleDAO{
+public class VehicleDAOImpl extends BaseDAO implements VehicleDAO {
 
-public void addVehicle(Vehicle vehicle) throws Exception {
+    public void addVehicle(Vehicle vehicle) throws Exception {
         try {
             begin();
             getSession().save(vehicle);
@@ -24,7 +24,7 @@ public void addVehicle(Vehicle vehicle) throws Exception {
         }
     }
 
-    public void updateVehicle(Vehicle vehicle) throws Exception{
+    public void updateVehicle(Vehicle vehicle) throws Exception {
     }
 
     public void deleteVehicle(Vehicle vehicle) throws Exception {
@@ -38,11 +38,11 @@ public void addVehicle(Vehicle vehicle) throws Exception {
         }
     }
 
-    public Vehicle findByPrimaryKey(Long vehicleId) throws Exception{
+    public Vehicle findByPrimaryKey(Long vehicleId) throws Exception {
         Vehicle vehicle = null;
         try {
             begin();
-            vehicle = (Vehicle)getSession().load(Vehicle.class, vehicleId);
+            vehicle = (Vehicle) getSession().load(Vehicle.class, vehicleId);
             commit();
         } catch (HibernateException e) {
             rollback();
@@ -64,5 +64,4 @@ public void addVehicle(Vehicle vehicle) throws Exception {
         }
         return vehicles;
     }
-
 }
