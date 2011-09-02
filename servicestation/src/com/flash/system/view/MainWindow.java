@@ -36,6 +36,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JMenu menuToolBar;
     private JMenu menuVehicle;
     private JMenu menuUser;
+    private JMenu menuPreOrder;
     private JMenuItem menuItemExit;
     private JMenuItem menuItemAddCustomer;
     private JMenuItem menuItemUpdateCustomer;
@@ -47,6 +48,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JMenuItem menuItemAddNewUser;
     private JMenuItem menuItemUpdateUser;
     private JMenuItem menuItemAddNewUserType;
+    private JMenuItem menuItemAddNewPreOrder;
+    private JMenuItem menuItemUpdatePreOrder;
     private JToolBar toolbar;
     private JButton toolExit;
     private JButton toolNewCustomer;
@@ -115,6 +118,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuToolBar = new JMenu("Tool Bar");
         menuVehicle = new JMenu("Vehicle Mgt");
         menuUser = new JMenu("User Mgt");
+        menuPreOrder = new JMenu("Pre Order");
 
         /* Creating Menu Items */
         menuItemExit = new JMenuItem("Exit");
@@ -128,6 +132,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemAddNewUser = new JMenuItem("Add New User");
         menuItemUpdateUser = new JMenuItem("Update User");
         menuItemAddNewUserType = new JMenuItem("Add New User Type");
+        menuItemAddNewPreOrder = new JMenuItem("Add New Pre Order");
+        menuItemUpdatePreOrder = new JMenuItem("Update Pre Order");
 
         toolAddNewCustomerItem = new JCheckBoxMenuItem("show Add New Customer Icon");
         toolAddNewCustomerItem.setState(false);
@@ -162,11 +168,14 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuToolBar.add(toolUpdateUserItem);
         menuToolBar.add(toolAddNewVehicleItem);
         menuToolBar.add(toolUpdateVehicleItem);
+        menuPreOrder.add(menuItemAddNewPreOrder);
+        menuPreOrder.add(menuItemUpdatePreOrder);
 
         /* Adding Menus to the Menubar */
         menubar.add(menuApp);
         menubar.add(menuCustomer);
         menubar.add(menuVehicle);
+        menubar.add(menuPreOrder);
 
         setJMenuBar(menubar);
     }
@@ -249,6 +258,21 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
                 addNewUserTypeBody();
             }
         });
+        
+        menuItemAddNewPreOrder.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                JOptionPane.showMessageDialog(null, "Not supported yet.");
+            }
+        });
+        
+        menuItemUpdatePreOrder.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                JOptionPane.showMessageDialog(null, "Not supported yet.");
+            }
+        });
+
     }
 
     private void initToolBar() {
