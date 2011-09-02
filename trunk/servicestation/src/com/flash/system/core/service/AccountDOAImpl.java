@@ -25,6 +25,15 @@ public class AccountDOAImpl extends BaseDAO implements AccountDAO {
     }
 
     public void updateAccount(Account account) throws Exception {
+        try {
+            begin();
+            getSession().update(account);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession().saveOrUpdate(account);
+            commit();
+        }
     }
 
     public void deleteAccount(Account account) throws Exception {
