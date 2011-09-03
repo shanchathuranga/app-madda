@@ -4,7 +4,6 @@ import com.flash.system.core.dao.EmployeeTypeDAO;
 import com.flash.system.core.entity.EmployeeType;
 import com.flash.system.core.service.EmployeeTypeDAOImpl;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
@@ -12,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 
 /**
  *
@@ -31,7 +29,7 @@ public class AddNewUserType extends JPanel implements ActionListener {
 
         base = new JPanel();
         base.setPreferredSize(new Dimension(400, 200));
-        base.setBorder(BorderFactory.createTitledBorder("| Add New User Type |"));
+        base.setBorder(BorderFactory.createTitledBorder("  Add New User Type  "));
         lUserType = new JLabel("User Type Name : ");
         lUserType.setPreferredSize(new Dimension(150, 30));
         base.add(lUserType);

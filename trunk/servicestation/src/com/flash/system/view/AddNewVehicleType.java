@@ -27,7 +27,7 @@ public class AddNewVehicleType extends JPanel implements ActionListener {
 
         base = new JPanel();
         base.setPreferredSize(new Dimension(400, 200));
-        base.setBorder(BorderFactory.createTitledBorder("|   Add New Vehicle Type   |"));
+        base.setBorder(BorderFactory.createTitledBorder("  Add New Vehicle Type  "));
         lVehicleType = new JLabel("Vehicle Type Name : ");
         lVehicleType.setPreferredSize(new Dimension(150, 30));
         base.add(lVehicleType);
