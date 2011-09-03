@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
@@ -238,7 +237,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemAddNewUser.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent ae) {
-                JOptionPane.showMessageDialog(null, "Not supported yet.");
+                addNewUserBody();
             }
         });
 
@@ -478,6 +477,14 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         base.repaint();
         AddNewCustomer addNewCustomer = new AddNewCustomer(this);
         base.add(addNewCustomer);
+        base.validate();
+    }
+
+    private void addNewUserBody() {
+        base.removeAll();
+        base.repaint();
+        AddNewUser addNewUser = new AddNewUser(this);
+        base.add(addNewUser);
         base.validate();
     }
 

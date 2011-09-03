@@ -27,7 +27,7 @@ public class AddNewVehicleCategory extends JPanel implements ActionListener {
 
         base = new JPanel();
         base.setPreferredSize(new Dimension(400, 200));
-        base.setBorder(BorderFactory.createTitledBorder("|   Add New Vehicle Category   |"));
+        base.setBorder(BorderFactory.createTitledBorder("  Add New Vehicle Category  "));
         lVehicleCat = new JLabel("Vehicle Category Name : ");
         lVehicleCat.setPreferredSize(new Dimension(170, 30));
         base.add(lVehicleCat);
