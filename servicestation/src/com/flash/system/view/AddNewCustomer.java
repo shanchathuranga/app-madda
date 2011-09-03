@@ -26,7 +26,7 @@ import net.miginfocom.swing.MigLayout;
  */
 public class AddNewCustomer extends JPanel implements ActionListener {
 
-    private CustomerManagerService customerMgtService;
+    private CustomerManagerService customerManagerService;
 
     private CommonWindowUtilities comUtil;
     private JPanel base;
@@ -73,7 +73,7 @@ public class AddNewCustomer extends JPanel implements ActionListener {
 
     AddNewCustomer(CommonWindowUtilities comUtil) {
         this.comUtil = comUtil;
-        customerMgtService = new CustomerManagerService();
+        customerManagerService = new CustomerManagerService();
 
         base = new JPanel();
         base.setLayout(new MigLayout());
@@ -241,7 +241,7 @@ public class AddNewCustomer extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent click) {
         if (click.getSource() == bAddCustomer) {
-            String result = customerMgtService.addNewCustomer(
+            String result = customerManagerService.addNewCustomer(
                     tVehicleRegNo.getText(),
                     tCustomerFName.getText(),
                     tCustomerLName.getText(),
