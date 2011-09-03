@@ -26,6 +26,8 @@ import net.miginfocom.swing.MigLayout;
  */
 public class AddNewCustomer extends JPanel implements ActionListener {
 
+    private CustomerManagerService customerMgtService;
+
     private CommonWindowUtilities comUtil;
     private JPanel base;
     private JPanel areaPanel;
@@ -71,6 +73,7 @@ public class AddNewCustomer extends JPanel implements ActionListener {
 
     AddNewCustomer(CommonWindowUtilities comUtil) {
         this.comUtil = comUtil;
+        customerMgtService = new CustomerManagerService();
 
         base = new JPanel();
         base.setLayout(new MigLayout());
@@ -236,9 +239,8 @@ public class AddNewCustomer extends JPanel implements ActionListener {
         add(base);
     }
 
-    public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == bAddCustomer) {
-            CustomerManagerService customerMgtService = new CustomerManagerService();
+    public void actionPerformed(ActionEvent click) {
+        if (click.getSource() == bAddCustomer) {
             String result = customerMgtService.addNewCustomer(
                     tVehicleRegNo.getText(),
                     tCustomerFName.getText(),
@@ -259,6 +261,12 @@ public class AddNewCustomer extends JPanel implements ActionListener {
                     );
             JOptionPane.showMessageDialog(null, result);
             comUtil.clearMainBody();
+        }
+        if (click.getSource() == bSaveCustomer) {
+            // todo
+        }
+        if (click.getSource() == bClearCustomer) {
+            // todo
         }
     }
 }

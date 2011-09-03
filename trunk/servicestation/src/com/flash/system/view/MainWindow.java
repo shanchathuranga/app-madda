@@ -66,7 +66,6 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JCheckBoxMenuItem toolAddNewVehicleItem;
     private JCheckBoxMenuItem toolUpdateVehicleItem;
     public static Map appSession = new HashMap();
-    private Stack<JPanel> panelStack;
 
     public MainWindow() {
         super();
@@ -79,8 +78,6 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         setLayout(new BorderLayout());
         base = new JPanel();
         add(base, BorderLayout.CENTER);
-        panelStack = new Stack<JPanel>();
-        panelStack.push(base);
 
         initMenuBar();
         initMenuActions();
@@ -124,7 +121,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemExit = new JMenuItem("Exit");
         menuItemAddCustomer = new JMenuItem("Add Customer");
         menuItemUpdateCustomer = new JMenuItem("Update Customer");
-        menuItemRegisterVehicle = new JMenuItem("Register Vehicle");
+        menuItemRegisterVehicle = new JMenuItem("Add New Vehicle");
         menuItemUpdateVehicle = new JMenuItem("Update Vehicle");
         menuItemAddNewVehicleModel = new JMenuItem("Add Vehicle Model");
         menuItemAddNewVehicleCategory = new JMenuItem("Add Vehicle Category");
@@ -206,7 +203,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemRegisterVehicle.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent ae) {
-                JOptionPane.showMessageDialog(null, "Not supported yet.");
+                addNewVehicleBody();
             }
         });
 
@@ -472,7 +469,6 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         base.removeAll();
         base.repaint();
         LogIn login = new LogIn(this);
-        panelStack.push(login);
         base.add(login);
         base.validate();
     }
@@ -481,46 +477,52 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         base.removeAll();
         base.repaint();
         AddNewCustomer addNewCustomer = new AddNewCustomer(this);
-        panelStack.push(addNewCustomer);
         base.add(addNewCustomer);
         base.validate();
     }
 
     private void addNewUserTypeBody() {
         base.removeAll();
+        base.repaint();
         AddNewUserType addNewUserType = new AddNewUserType(this);
-        panelStack.push(addNewUserType);
         base.add(addNewUserType);
+        base.validate();
+    }
+
+    private void addNewVehicleBody() {
+        base.removeAll();
+        base.repaint();
+        AddNewVehicle vehicle = new AddNewVehicle(this);
+        base.add(vehicle);
         base.validate();
     }
 
     private void addNewVehicleModelBody() {
         base.removeAll();
+        base.repaint();
         AddNewVehicleModel vehModel = new AddNewVehicleModel(this);
-        panelStack.push(vehModel);
         base.add(vehModel);
         base.validate();
     }
 
     private void addNewVehicleCategoryBody() {
         base.removeAll();
+        base.repaint();
         AddNewVehicleCategory vehCategory = new AddNewVehicleCategory(this);
-        panelStack.push(vehCategory);
         base.add(vehCategory);
         base.validate();
     }
 
     private void addNewVehicleTypeBody() {
         base.removeAll();
+        base.repaint();
         AddNewVehicleType vehType = new AddNewVehicleType(this);
-        panelStack.push(vehType);
         base.add(vehType);
         base.validate();
     }
 
     private void clearBody() {
-        base.remove(panelStack.pop());
-        //base.removeAll();
+        base.removeAll();
         base.repaint();
         base.validate();
     }
