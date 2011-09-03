@@ -6,11 +6,9 @@ import com.flash.system.core.entity.Customer;
 import com.flash.system.core.entity.Employee;
 import com.flash.system.core.entity.EmployeeType;
 import com.flash.system.core.entity.Item;
-import com.flash.system.core.entity.Job;
 import com.flash.system.core.entity.Order;
 import com.flash.system.core.entity.Permission;
 import com.flash.system.core.entity.PreOrder;
-import com.flash.system.core.entity.Repair;
 import com.flash.system.core.entity.Service;
 import com.flash.system.core.entity.Supplier;
 import com.flash.system.core.entity.Vehicle;
@@ -41,11 +39,9 @@ public class BaseDAO {
             .addAnnotatedClass(Employee.class)
             .addAnnotatedClass(EmployeeType.class)
             .addAnnotatedClass(Item.class)
-            .addAnnotatedClass(Job.class)
             .addAnnotatedClass(Order.class)
             .addAnnotatedClass(Permission.class)
             .addAnnotatedClass(PreOrder.class)
-            .addAnnotatedClass(Repair.class)
             .addAnnotatedClass(Service.class)
             .addAnnotatedClass(Supplier.class)
             .addAnnotatedClass(Vehicle.class)
