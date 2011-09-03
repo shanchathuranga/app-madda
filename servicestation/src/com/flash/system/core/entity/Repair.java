@@ -1,10 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.flash.system.core.entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +11,7 @@ import javax.persistence.Id;
  * @author shan
  */
 @Entity
-public class Repair {
+public class Repair implements Serializable {
 
     private long RepairId;
     private String RepairType;

@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.flash.system.core.entity;
 
 import java.io.Serializable;
@@ -16,7 +11,7 @@ import javax.persistence.Id;
  * @author shan
  */
 @Entity
-public class Service {
+public class Service implements Serializable {
 
     private long serviceId;
     private String serviceName;
@@ -38,6 +33,5 @@ public class Service {
     public void setServiceName(String serviceName) {
         this.serviceName = serviceName;
     }
-
 
 }

@@ -1,10 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.flash.system.core.entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +11,11 @@ import javax.persistence.Id;
  * @author shan
  */
 @Entity
-public class PreOrder {
+public class PreOrder implements Serializable {
 
     private int preOrderId;
-    private String preOrderName;
+    private Customer owner;
+    private Vehicle vehicle;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -30,13 +27,20 @@ public class PreOrder {
         this.preOrderId = preOrderId;
     }
 
-    public String getPreOrderName() {
-        return preOrderName;
+    public Customer getOwner() {
+        return owner;
     }
 
-    public void setPreOrderName(String preOrderName) {
-        this.preOrderName = preOrderName;
+    public void setOwner(Customer owner) {
+        this.owner = owner;
     }
 
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
 
 }
