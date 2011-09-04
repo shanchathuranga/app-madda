@@ -1,17 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.flash.system.core.entity;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -31,6 +30,27 @@ public class Vehicle implements Serializable {
     private VehicleCategory vehicleCategory;
     private VehicleModel vehicleModel;
     private VehicleType vehicleType;
+    private Customer owner;
+    private List<PreOrderForm> preOrders;
+
+    @OneToMany(targetEntity=PreOrderForm.class, mappedBy="vehicle", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    public List<PreOrderForm> getPreOrders() {
+        return preOrders;
+    }
+
+    public void setPreOrders(List<PreOrderForm> preOrders) {
+        this.preOrders = preOrders;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="ownerID")
+    public Customer getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Customer owner) {
+        this.owner = owner;
+    }
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
