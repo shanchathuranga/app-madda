@@ -16,6 +16,8 @@ import javax.swing.JTextField;
  */
 public class AddNewVehicleType extends JPanel implements ActionListener {
 
+    private VehicleManagerService vehicleManagerService;
+
     private CommonWindowUtilities comUtil;
     private JPanel base;
     private JLabel lVehicleType;
@@ -24,6 +26,7 @@ public class AddNewVehicleType extends JPanel implements ActionListener {
 
     public AddNewVehicleType(CommonWindowUtilities comUtil) {
         this.comUtil = comUtil;
+        vehicleManagerService = new VehicleManagerService();
 
         base = new JPanel();
         base.setPreferredSize(new Dimension(400, 200));
@@ -45,7 +48,6 @@ public class AddNewVehicleType extends JPanel implements ActionListener {
     
     public void actionPerformed(ActionEvent ae) {
         if( ae.getSource() == bAddVehicleType ) {
-            VehicleManagerService vehicleManagerService = new VehicleManagerService();
             vehicleManagerService.addNewVehicleType(tVehicleType.getText());
             comUtil.clearMainBody();
         }
