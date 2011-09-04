@@ -1,10 +1,14 @@
 package com.flash.system.core.entity;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -14,15 +18,22 @@ import javax.persistence.Id;
 public class Customer implements Serializable {
 
     private Long customerId;        /* Unique ID for custormer   */
+
     private String vehicleRegNo;    /* vehical registration No   */
+
     private String customerFName;   /* Customer First Name       */
+
     private String customerLName;   /* Customer Last Name        */
+
     private String customerNICNo;   /* National ID No            */
+
     private String customerDLNo;    /* Driving Licen No          */
+
     private String addressHome;
     private String addressOffice;
     private String addressOther;
     private String tpMobile;        /* Mobile phone No           */
+
     private String tpHome;
     private String tpOffice;
     private String fax;
@@ -30,26 +41,48 @@ public class Customer implements Serializable {
     private String website;
     private int customerState;      /* enum State                */
     private int customerType;       /* enum CustomerType         */
+    private List<Vehicle> vehicles;
+    private List<PreOrderForm> preOrders;
 
     public enum State {
+
         ACTIVE,
         INACTIVE,
         DELETED
     }
 
     public enum CustomerType {
+
         PERSONAL,
         ORGANIZATION
     }
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getCustomerId() {
         return customerId;
     }
 
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
+    }
+
+    @OneToMany(targetEntity=PreOrderForm.class, mappedBy="owner", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    public List<PreOrderForm> getPreOrders() {
+        return preOrders;
+    }
+
+    public void setPreOrders(List<PreOrderForm> preOrders) {
+        this.preOrders = preOrders;
+    }
+
+    @OneToMany(targetEntity=Vehicle.class, mappedBy="owner", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    public List<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
     }
 
     public String getAddressHome() {
@@ -179,5 +212,4 @@ public class Customer implements Serializable {
     public void setCustomerState(int customerState) {
         this.customerState = customerState;
     }
-
 }

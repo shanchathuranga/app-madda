@@ -5,28 +5,41 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author shan
  */
 @Entity
-public class PreOrder implements Serializable {
+public class PreOrderForm implements Serializable {
 
-    private int preOrderId;
+    private int preOrderFormId;
     private Customer owner;
     private Vehicle vehicle;
+    private boolean isPaid;
+
+    public boolean isIsPaid() {
+        return isPaid;
+    }
+
+    public void setIsPaid(boolean isPaid) {
+        this.isPaid = isPaid;
+    }
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    public int getPreOrderId() {
-        return preOrderId;
+    public int getPreOrderFormId() {
+        return preOrderFormId;
     }
 
-    public void setPreOrderId(int preOrderId) {
-        this.preOrderId = preOrderId;
+    public void setPreOrderFormId(int preOrderFormId) {
+        this.preOrderFormId = preOrderFormId;
     }
 
+    @ManyToOne
+    @JoinColumn(name="ownerID")
     public Customer getOwner() {
         return owner;
     }
@@ -35,6 +48,8 @@ public class PreOrder implements Serializable {
         this.owner = owner;
     }
 
+    @ManyToOne
+    @JoinColumn(name="vehicleID")
     public Vehicle getVehicle() {
         return vehicle;
     }

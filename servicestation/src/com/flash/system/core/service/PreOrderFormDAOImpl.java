@@ -1,8 +1,8 @@
 package com.flash.system.core.service;
 
 import com.flash.system.core.dao.BaseDAO;
-import com.flash.system.core.dao.PreOrderDAO;
-import com.flash.system.core.entity.PreOrder;
+import com.flash.system.core.dao.PreOrderFormDAO;
+import com.flash.system.core.entity.PreOrderForm;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -11,9 +11,9 @@ import org.hibernate.Query;
  *
  * @author shan
  */
-public class PreOrderDAOImpl extends BaseDAO implements PreOrderDAO{
+public class PreOrderFormDAOImpl extends BaseDAO implements PreOrderFormDAO{
 
-public void addPreOrder(PreOrder preOrder) throws Exception {
+public void addPreOrder(PreOrderForm preOrder) throws Exception {
         try {
             begin();
             getSession().save(preOrder);
@@ -24,10 +24,10 @@ public void addPreOrder(PreOrder preOrder) throws Exception {
         }
     }
 
-    public void updatePreOrder(PreOrder preOrder) throws Exception{
+    public void updatePreOrder(PreOrderForm preOrder) throws Exception{
     }
 
-    public void deletePreOrder(PreOrder preOrder) throws Exception {
+    public void deletePreOrder(PreOrderForm preOrder) throws Exception {
         try {
             begin();
             getSession().delete(preOrder);
@@ -38,11 +38,11 @@ public void addPreOrder(PreOrder preOrder) throws Exception {
         }
     }
 
-    public PreOrder findByPrimaryKey(Long preOrderId) throws Exception{
-        PreOrder preOrder = null;
+    public PreOrderForm findByPrimaryKey(Long preOrderId) throws Exception{
+        PreOrderForm preOrder = null;
         try {
             begin();
-            preOrder = (PreOrder)getSession().load(PreOrder.class, preOrderId);
+            preOrder = (PreOrderForm)getSession().load(PreOrderForm.class, preOrderId);
             commit();
         } catch (HibernateException e) {
             rollback();
@@ -51,8 +51,8 @@ public void addPreOrder(PreOrder preOrder) throws Exception {
         return preOrder;
     }
 
-    public List<PreOrder> findAll() throws Exception {
-        List<PreOrder> preOrders = null;
+    public List<PreOrderForm> findAll() throws Exception {
+        List<PreOrderForm> preOrders = null;
         try {
             begin();
             Query query = getSession().createQuery("from PreOrder");
