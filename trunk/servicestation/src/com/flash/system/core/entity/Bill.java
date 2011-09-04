@@ -5,18 +5,21 @@
 
 package com.flash.system.core.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author shan
  */
 @Entity
-public class Bill {
+public class Bill implements Serializable {
 
     private long billId;
     private String customerName;
@@ -32,6 +35,7 @@ public class Bill {
         this.billId = billId;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getBillDate() {
         return billDate;
     }

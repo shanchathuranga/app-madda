@@ -5,6 +5,7 @@
 
 package com.flash.system.core.entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
  * @author shan
  */
 @Entity
-public class Account {
+public class Account implements Serializable {
 
    private long accountId;
    private String accountHolderName;
@@ -37,6 +38,5 @@ public class Account {
     public void setAccountHolderName(String accountHolderName) {
         this.accountHolderName = accountHolderName;
     }
-
     
 }
