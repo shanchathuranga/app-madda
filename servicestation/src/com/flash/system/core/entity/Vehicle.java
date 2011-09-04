@@ -33,7 +33,7 @@ public class Vehicle implements Serializable {
     private Customer owner;
     private List<PreOrderForm> preOrders;
 
-    @OneToMany(targetEntity=PreOrderForm.class, mappedBy="vehicle", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(targetEntity=PreOrderForm.class, mappedBy="vehicle", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     public List<PreOrderForm> getPreOrders() {
         return preOrders;
     }

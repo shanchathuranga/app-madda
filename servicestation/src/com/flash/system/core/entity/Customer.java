@@ -18,22 +18,15 @@ import javax.persistence.OneToMany;
 public class Customer implements Serializable {
 
     private Long customerId;        /* Unique ID for custormer   */
-
     private String vehicleRegNo;    /* vehical registration No   */
-
     private String customerFName;   /* Customer First Name       */
-
     private String customerLName;   /* Customer Last Name        */
-
     private String customerNICNo;   /* National ID No            */
-
     private String customerDLNo;    /* Driving Licen No          */
-
     private String addressHome;
     private String addressOffice;
     private String addressOther;
     private String tpMobile;        /* Mobile phone No           */
-
     private String tpHome;
     private String tpOffice;
     private String fax;
@@ -67,7 +60,7 @@ public class Customer implements Serializable {
         this.customerId = customerId;
     }
 
-    @OneToMany(targetEntity=PreOrderForm.class, mappedBy="owner", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(targetEntity=PreOrderForm.class, mappedBy="owner", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     public List<PreOrderForm> getPreOrders() {
         return preOrders;
     }
@@ -76,7 +69,7 @@ public class Customer implements Serializable {
         this.preOrders = preOrders;
     }
 
-    @OneToMany(targetEntity=Vehicle.class, mappedBy="owner", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(targetEntity=Vehicle.class, mappedBy="owner", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     public List<Vehicle> getVehicles() {
         return vehicles;
     }
