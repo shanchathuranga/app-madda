@@ -281,7 +281,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemAddNewPreOrder.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent ae) {
-                JOptionPane.showMessageDialog(null, "Not supported yet.");
+                addNewPreOrderBody();
             }
         });
         
@@ -556,6 +556,14 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         base.repaint();
         AddNewVehicleType vehType = new AddNewVehicleType(this);
         base.add(vehType);
+        base.validate();
+    }
+
+    private void addNewPreOrderBody() {
+        base.removeAll();
+        base.repaint();
+        AddNewPreOrderForm preOrderForm = new AddNewPreOrderForm(this);
+        base.add(preOrderForm);
         base.validate();
     }
 

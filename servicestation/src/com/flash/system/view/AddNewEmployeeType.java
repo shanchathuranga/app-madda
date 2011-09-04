@@ -1,8 +1,5 @@
 package com.flash.system.view;
 
-import com.flash.system.core.dao.EmployeeTypeDAO;
-import com.flash.system.core.entity.EmployeeType;
-import com.flash.system.core.service.EmployeeTypeDAOImpl;
 import com.flash.system.logic.EmployeeManagerService;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
