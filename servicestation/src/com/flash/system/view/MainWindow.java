@@ -506,7 +506,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private void addNewUserBody() {
         base.removeAll();
         base.repaint();
-        AddNewUser addNewUser = new AddNewUser(this);
+        AddNewEmployee addNewUser = new AddNewEmployee(this);
         base.add(addNewUser);
         base.validate();
     }
@@ -522,7 +522,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private void addNewUserTypeBody() {
         base.removeAll();
         base.repaint();
-        AddNewUserType addNewUserType = new AddNewUserType(this);
+        AddNewEmployeeType addNewUserType = new AddNewEmployeeType(this);
         base.add(addNewUserType);
         base.validate();
     }

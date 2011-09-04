@@ -1,11 +1,13 @@
 package com.flash.system.view;
 
-import com.flash.system.logic.UserManagerService;
+import com.flash.system.core.entity.EmployeeType;
+import com.flash.system.logic.EmployeeManagerService;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -22,9 +24,9 @@ import net.miginfocom.swing.MigLayout;
  *
  * @author shan
  */
-public class AddNewUser extends JPanel implements ActionListener {
+public class AddNewEmployee extends JPanel implements ActionListener {
 
-    private UserManagerService userManagerService;
+    private EmployeeManagerService employeeManagerService;
     private CommonWindowUtilities comUtil;
 
     private JLabel lCaption;
@@ -52,14 +54,14 @@ public class AddNewUser extends JPanel implements ActionListener {
     private JButton bSaveUser;
     private JButton bClearUser;
 
-    public AddNewUser(CommonWindowUtilities comUtil) {
+    public AddNewEmployee(CommonWindowUtilities comUtil) {
         this.comUtil = comUtil;
-        userManagerService = new UserManagerService();
+        employeeManagerService = new EmployeeManagerService();
 
         base = new JPanel();
         base.setLayout(new MigLayout());
 
-        lCaption = new JLabel("User Registration");
+        lCaption = new JLabel("Employee Registration");
         lCaption.setFont(new Font("Monospaced 12", Font.BOLD, 16));
         lCaption.setHorizontalAlignment(SwingUtilities.CENTER);
         lCaption.setPreferredSize(new Dimension(870, 30));
@@ -141,6 +143,12 @@ public class AddNewUser extends JPanel implements ActionListener {
         base.add(bClearUser);
 
         add(base);
+
+        List<EmployeeType> employeeTypeList = employeeManagerService.getAllEmployeeTypes();
+        for(EmployeeType et : employeeTypeList) {
+            String s = et.getJobCode() + " : " + et.getJobName();
+            cEmployeeType.addItem(s);
+        }
     }
 
     public void actionPerformed(ActionEvent ae) {
