@@ -10,6 +10,7 @@ import com.flash.system.core.entity.Order;
 import com.flash.system.core.entity.Permission;
 import com.flash.system.core.entity.PreOrder;
 import com.flash.system.core.entity.Service;
+import com.flash.system.core.entity.ServiceType;
 import com.flash.system.core.entity.Supplier;
 import com.flash.system.core.entity.Vehicle;
 import com.flash.system.core.entity.VehicleCategory;
@@ -43,6 +44,7 @@ public class BaseDAO {
             .addAnnotatedClass(Permission.class)
             .addAnnotatedClass(PreOrder.class)
             .addAnnotatedClass(Service.class)
+            .addAnnotatedClass(ServiceType.class)
             .addAnnotatedClass(Supplier.class)
             .addAnnotatedClass(Vehicle.class)
             .addAnnotatedClass(VehicleCategory.class)

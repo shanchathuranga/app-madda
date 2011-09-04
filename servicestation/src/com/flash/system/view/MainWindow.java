@@ -35,6 +35,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JMenu menuToolBar;
     private JMenu menuVehicle;
     private JMenu menuUser;
+    private JMenu menuServiceType;
     private JMenu menuPreOrder;
     private JMenuItem menuItemExit;
     private JMenuItem menuItemAddCustomer;
@@ -46,6 +47,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JMenuItem menuItemAddNewVehicleType;
     private JMenuItem menuItemAddNewUser;
     private JMenuItem menuItemUpdateUser;
+    private JMenuItem menuItemAddNewServiceType;
+    private JMenuItem menuItemUpdateServiceType;
     private JMenuItem menuItemAddNewUserType;
     private JMenuItem menuItemAddNewPreOrder;
     private JMenuItem menuItemUpdatePreOrder;
@@ -114,6 +117,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuToolBar = new JMenu("Tool Bar");
         menuVehicle = new JMenu("Vehicle Mgt");
         menuUser = new JMenu("User Mgt");
+        menuServiceType = new JMenu("Service Type Mgt");
         menuPreOrder = new JMenu("Pre Order");
 
         /* Creating Menu Items */
@@ -127,6 +131,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemAddNewVehicleType = new JMenuItem("Add Vehicle Type");
         menuItemAddNewUser = new JMenuItem("Add New User");
         menuItemUpdateUser = new JMenuItem("Update User");
+        menuItemAddNewServiceType = new JMenuItem("Add New Service Type");
+        menuItemUpdateServiceType = new JMenuItem("Update Service Type");
         menuItemAddNewUserType = new JMenuItem("Add New User Type");
         menuItemAddNewPreOrder = new JMenuItem("Add New Pre Order");
         menuItemUpdatePreOrder = new JMenuItem("Update Pre Order");
@@ -146,6 +152,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
 
         /* Adding Menu Items to Menus */
         menuApp.add(menuUser);
+        menuApp.add(menuServiceType);
         menuApp.add(menuToolBar);
         menuApp.add(menuItemExit);
         menuCustomer.add(menuItemAddCustomer);
@@ -158,6 +165,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuUser.add(menuItemAddNewUser);
         menuUser.add(menuItemUpdateUser);
         menuUser.add(menuItemAddNewUserType);
+        menuServiceType.add(menuItemAddNewServiceType);
+        menuServiceType.add(menuItemUpdateServiceType);
         menuToolBar.add(toolAddNewCustomerItem);
         menuToolBar.add(toolUpdateCustomerItem);
         menuToolBar.add(toolAddUserItem);
@@ -245,6 +254,20 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
 
             public void actionPerformed(ActionEvent ae) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
+            }
+        });
+
+        menuItemAddNewServiceType.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                addNewServiceTypeBody();
+            }
+        });
+
+        menuItemUpdateServiceType.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                //
             }
         });
 
@@ -484,6 +507,14 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         base.removeAll();
         base.repaint();
         AddNewUser addNewUser = new AddNewUser(this);
+        base.add(addNewUser);
+        base.validate();
+    }
+
+    private void addNewServiceTypeBody() {
+        base.removeAll();
+        base.repaint();
+        AddNewServiceType addNewUser = new AddNewServiceType(this);
         base.add(addNewUser);
         base.validate();
     }
