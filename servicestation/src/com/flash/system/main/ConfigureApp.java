@@ -37,6 +37,11 @@ public class ConfigureApp {
 
         new SchemaExport(config).create(true, true);
     }
+    
+    public static void addSampleData() {
+      // TODO
+      // create service objects
+    }
 
     public static void startUI() {
         System.out.println("Application Starting...");
