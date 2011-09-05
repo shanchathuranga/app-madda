@@ -11,6 +11,8 @@ public class Main {
         System.out.println("Application starting...");
 
         //ConfigureApp.runPreSQL();
+        
+        //ConfigureApp.addSampleData();
 
         ConfigureApp.startUI();
 
