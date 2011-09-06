@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.flash.system.core.service;
 
 import com.flash.system.core.dao.BaseDAO;
@@ -16,7 +15,7 @@ import org.hibernate.Query;
  *
  * @author shan
  */
-public class VehicleCategoryDAOImpl extends BaseDAO implements VehicleCategoryDAO{
+public class VehicleCategoryDAOImpl extends BaseDAO implements VehicleCategoryDAO {
 
     public void addVehicleCategory(VehicleCategory vehicleCategory) throws Exception {
         try {
@@ -29,8 +28,16 @@ public class VehicleCategoryDAOImpl extends BaseDAO implements VehicleCategoryDA
         }
     }
 
-    public void updateVehicleCategory(VehicleCategory customer) throws Exception {
-
+    public void updateVehicleCategory(VehicleCategory vehicleCaregory) throws Exception {
+        try {
+            begin();
+            getSession().update(vehicleCaregory);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession().saveOrUpdate(vehicleCaregory);
+            commit();
+        }
     }
 
     public void deleteVehicleCategory(VehicleCategory vehicleCategory) throws Exception {
@@ -70,5 +77,4 @@ public class VehicleCategoryDAOImpl extends BaseDAO implements VehicleCategoryDA
         }
         return vehicleCategorys;
     }
-
 }

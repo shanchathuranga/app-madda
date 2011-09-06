@@ -25,6 +25,15 @@ public class EmployeeDAOImpl extends BaseDAO implements EmployeeDAO {
     }
 
     public void updateEmployee(Employee employee) throws Exception {
+        try {
+            begin();
+            getSession().update(employee);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession().saveOrUpdate(employee);
+            commit();
+        }
     }
 
     public void deleteEmployee(Employee employee) throws Exception {

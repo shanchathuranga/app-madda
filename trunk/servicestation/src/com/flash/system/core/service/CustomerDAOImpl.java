@@ -6,6 +6,7 @@ import com.flash.system.core.entity.Customer;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.Session;
 
 /**
  *
@@ -24,7 +25,16 @@ public class CustomerDAOImpl extends BaseDAO implements CustomerDAO {
         }
     }
 
-    public void updateCustomer(Customer customer) throws Exception{
+    public void updateCustomer(Customer customer) throws Exception {
+        try {
+            begin();
+            getSession().update(customer);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession().saveOrUpdate(customer);
+            commit();
+        }
     }
 
     public void deleteCustomer(Customer customer) throws Exception {
@@ -38,11 +48,11 @@ public class CustomerDAOImpl extends BaseDAO implements CustomerDAO {
         }
     }
 
-    public Customer findByPrimaryKey(Long customerId) throws Exception{
+    public Customer findByPrimaryKey(Long customerId) throws Exception {
         Customer customer = null;
         try {
             begin();
-            customer = (Customer)getSession().load(Customer.class, customerId);
+            customer = (Customer) getSession().load(Customer.class, customerId);
             commit();
         } catch (HibernateException e) {
             rollback();
@@ -64,5 +74,55 @@ public class CustomerDAOImpl extends BaseDAO implements CustomerDAO {
         }
         return customers;
     }
-    
+
+    public Customer findByEmail(String email) throws Exception {
+        Customer customer = null;
+        try {
+            begin();
+            Query query = getSession()
+                    .createQuery("from Customer where email=?")
+                    .setParameter(0, email);
+            customer = (Customer) query.uniqueResult();
+            commit();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
+        return customer;
+    }
+
+    public List<Customer> findCustomersByEmail(String mockEmail) throws Exception {
+        List<Customer> customers = null;
+        try {
+            begin();
+            Query query = getSession()
+                    .createQuery("from Customer");
+                    //.setParameter(0, mockEmail);
+            commit();
+        } catch (Exception e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
+        return customers;
+    }
+
+    public List<Customer> findByFname(String fName) throws Exception {
+        List<Customer> customers = null;
+        return customers;
+    }
+
+    public List<Customer> findByLname(String lName) throws Exception {
+        List<Customer> customers = null;
+        return customers;
+    }
+
+    public List<Customer> findByNICNo(String NIC) throws Exception {
+        List<Customer> customers = null;
+        return customers;
+    }
+
+    public Customer findBytpMobile(String mobileNumber) throws Exception {
+        Customer customer = null;
+        return customer;
+    }
 }

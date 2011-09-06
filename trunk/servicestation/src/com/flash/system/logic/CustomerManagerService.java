@@ -3,6 +3,7 @@ package com.flash.system.logic;
 import com.flash.system.core.dao.CustomerDAO;
 import com.flash.system.core.entity.Customer;
 import com.flash.system.core.service.CustomerDAOImpl;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,4 +51,56 @@ public class CustomerManagerService {
         }
         return "Error";
     }
+
+    public String deleteCustomer(Customer customer) throws Exception {
+        customerDAO.deleteCustomer(customer);
+        return customer.getCustomerFName() + " Deleted Successfuly";
+    }
+
+    public String updateCustomer(Customer customer) throws Exception {
+        customerDAO.updateCustomer(customer);
+        return customer.getCustomerFName() + " Updated Successfuly";
+    }
+
+    public Customer getById(Long customerId) throws Exception {
+        Customer customer = new Customer();
+        customer = customerDAO.findByPrimaryKey(customerId);
+        return customer;
+
+    }
+    public List<Customer> getAll() throws Exception {
+        List<Customer> all = customerDAO.findAll();
+        return all;
+    }
+
+    public List<Customer> gebyFname(String fName) throws Exception {
+        List<Customer> customers = customerDAO.findByFname(fName);
+        return customers;
+    }
+
+    public List<Customer> gebyLname(String lName) throws Exception {
+        List<Customer> customers = customerDAO.findByLname(lName);
+        return customers;
+    }
+
+    public List<Customer> gebyNIC(String NIC) throws Exception {
+        List<Customer> customers = customerDAO.findByNICNo(NIC);
+        return customers;
+    }
+
+    public Customer getByMobileNumber(String mobileNumber) throws Exception {
+        Customer customer = customerDAO.findBytpMobile(mobileNumber);
+        return customer;
+    }
+
+    public Customer getByEmail(String email) throws Exception {
+        Customer customer = customerDAO.findByEmail(email);
+        return customer;
+    }
+
+    public List<Customer> getCustomersByEmail(String mockEmail) throws Exception {
+        List<Customer> customers = customerDAO.findCustomersByEmail(mockEmail);
+        return customers;
+    }
 }
+

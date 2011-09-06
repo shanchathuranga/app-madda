@@ -18,4 +18,16 @@ public interface CustomerDAO {
     public Customer findByPrimaryKey(Long id) throws Exception;
 
     public List<Customer> findAll() throws Exception;
+
+    public Customer findByEmail(String email) throws Exception;
+
+    public List<Customer> findCustomersByEmail(String mockEmail) throws Exception;
+
+    public List<Customer> findByFname(String fName) throws Exception;
+
+    public List<Customer> findByLname(String lName) throws Exception;
+
+    public List<Customer> findByNICNo(String NIC) throws Exception;
+
+    public Customer findBytpMobile(String mobileNumber) throws Exception;
 }

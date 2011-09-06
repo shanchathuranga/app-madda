@@ -11,11 +11,14 @@ public class Main {
         System.out.println("Application starting...");
 
         //ConfigureApp.runPreSQL();
-        
+
         //ConfigureApp.addSampleData();
+
+        //ConfigureApp.testQuery();
+
+        //ConfigureApp.runTestData();
 
         ConfigureApp.startUI();
 
     }
-
 }

@@ -25,6 +25,15 @@ public class VehicleDAOImpl extends BaseDAO implements VehicleDAO {
     }
 
     public void updateVehicle(Vehicle vehicle) throws Exception {
+        try {
+            begin();
+            getSession().update(vehicle);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession().saveOrUpdate(vehicle);
+            commit();
+        }
     }
 
     public void deleteVehicle(Vehicle vehicle) throws Exception {

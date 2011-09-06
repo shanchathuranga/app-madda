@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface ServiceDAO {
 
-    public void addService(Service customer) throws Exception;
+    public void addService(Service service) throws Exception;
 
-    public void updateService(Service customer) throws Exception;
+    public void updateService(Service service) throws Exception;
 
-    public void deleteService(Service customer) throws Exception;
+    public void deleteService(Service service) throws Exception;
 
     public Service findByPrimaryKey(Long id) throws Exception;
 

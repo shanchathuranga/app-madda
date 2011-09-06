@@ -25,6 +25,16 @@ public class ItemDAOImpl extends BaseDAO implements ItemDAO {
     }
 
     public void updateItem(Item item) throws Exception {
+        try{
+            begin();
+            getSession().update(item);
+            commit();
+
+        }catch(HibernateException e){
+            begin();
+            getSession();
+            commit();
+        }
     }
 
     public void deleteItem(Item item) throws Exception {
