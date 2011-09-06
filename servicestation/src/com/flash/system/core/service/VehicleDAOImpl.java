@@ -73,4 +73,18 @@ public class VehicleDAOImpl extends BaseDAO implements VehicleDAO {
         }
         return vehicles;
     }
+
+    public Vehicle findByRegNumber(String vehicleRegNumber) throws Exception {
+        Vehicle vehicle = null;
+        try {
+            begin();
+            Query query = getSession().createQuery("from Vehicle where vehicleRegNo = ?").setParameter(0, vehicleRegNumber);
+            vehicle = (Vehicle) query.uniqueResult();
+            commit();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
+        return vehicle;
+    }
 }

@@ -18,4 +18,6 @@ public interface VehicleDAO {
     public Vehicle findByPrimaryKey(Long id) throws Exception;
 
     public List<Vehicle> findAll() throws Exception;
+
+    public Vehicle findByRegNumber(String vehicleRegNumber) throws Exception;
 }
