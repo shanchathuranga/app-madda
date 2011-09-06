@@ -12,6 +12,7 @@ import com.flash.system.core.service.VehicleCategoryDAOImpl;
 import com.flash.system.core.service.VehicleDAOImpl;
 import com.flash.system.core.service.VehicleModelDAOImpl;
 import com.flash.system.core.service.VehicleTypeDAOImpl;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,7 +36,7 @@ public class VehicleManagerService {
 
     public String addNewVehicle() {
         Vehicle vehicle = new Vehicle();
-        
+
         // populate
 
         try {
@@ -79,7 +80,7 @@ public class VehicleManagerService {
     }
 
     public String addNewVehicleType(String vehicleTypeName) {
-        
+
         VehicleType vehicleType = new VehicleType();
         vehicleType.setModelName(vehicleTypeName);
 
@@ -93,4 +94,36 @@ public class VehicleManagerService {
         return "Error";
     }
 
+    public Vehicle getByPrimaryKey(Long vehicleId) {
+        Vehicle vehicle = null;
+        try {
+            vehicle = vehicleDAO.findByPrimaryKey(vehicleId);
+        } catch (Exception ex) {
+            Logger.getLogger(VehicleManagerService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error occured : " + ex);
+        }
+        return vehicle;
+    }
+
+    public Vehicle getByVehicleRegNumber(String vehicleRegNumber) {
+        Vehicle vehicle = null;
+        try {
+            vehicle = vehicleDAO.findByRegNumber(vehicleRegNumber);
+        } catch (Exception ex) {
+            Logger.getLogger(VehicleManagerService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error occured : " + ex);
+        }
+        return vehicle;
+    }
+
+    public List<Vehicle> getAll() {
+        List<Vehicle> vehicles = null;
+        try {
+            vehicles = vehicleDAO.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(VehicleManagerService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error occured : " + ex);
+        }
+        return vehicles;
+    }
 }

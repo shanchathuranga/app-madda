@@ -79,9 +79,7 @@ public class CustomerDAOImpl extends BaseDAO implements CustomerDAO {
         Customer customer = null;
         try {
             begin();
-            Query query = getSession()
-                    .createQuery("from Customer where email=?")
-                    .setParameter(0, email);
+            Query query = getSession().createQuery("from Customer where email=?").setParameter(0, email);
             customer = (Customer) query.uniqueResult();
             commit();
         } catch (HibernateException e) {
@@ -95,9 +93,8 @@ public class CustomerDAOImpl extends BaseDAO implements CustomerDAO {
         List<Customer> customers = null;
         try {
             begin();
-            Query query = getSession()
-                    .createQuery("from Customer");
-                    //.setParameter(0, mockEmail);
+            Query query = getSession().createQuery("from Customer");
+            //.setParameter(0, mockEmail);
             commit();
         } catch (Exception e) {
             rollback();
@@ -108,21 +105,54 @@ public class CustomerDAOImpl extends BaseDAO implements CustomerDAO {
 
     public List<Customer> findByFname(String fName) throws Exception {
         List<Customer> customers = null;
+        try {
+            begin();
+            Query query = getSession().createQuery("from Customer where customerFName = ?").setParameter(0, fName);
+            customers = query.list();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
         return customers;
     }
 
     public List<Customer> findByLname(String lName) throws Exception {
         List<Customer> customers = null;
+        try {
+            begin();
+            Query query = getSession().createQuery("from Customer where customerLName = ?").setParameter(0, lName);
+            customers = query.list();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+
+        }
         return customers;
     }
 
     public List<Customer> findByNICNo(String NIC) throws Exception {
         List<Customer> customers = null;
+        try {
+            begin();
+            Query query = getSession().createQuery("from Customer where customerNICNo = ?").setParameter(0, NIC);
+            customers = query.list();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
         return customers;
     }
 
     public Customer findBytpMobile(String mobileNumber) throws Exception {
         Customer customer = null;
+        try {
+            begin();
+            Query query = getSession().createQuery("from Customer where tpMobile = ?").setParameter(0, mobileNumber);
+            customer = (Customer) query.uniqueResult();
+        } catch (HibernateException e) {
+            rollback();
+            throw new Exception(e.getCause().getMessage());
+        }
         return customer;
     }
 }
