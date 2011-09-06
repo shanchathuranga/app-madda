@@ -27,7 +27,6 @@ import net.miginfocom.swing.MigLayout;
 public class AddNewCustomer extends JPanel implements ActionListener {
 
     private CustomerManagerService customerManagerService;
-
     private CommonWindowUtilities comUtil;
     private JPanel base;
     private JPanel areaPanel;
@@ -172,7 +171,7 @@ public class AddNewCustomer extends JPanel implements ActionListener {
 
         scrollPane.getViewport().add(tNote);
         scrollPane.setVerticalScrollBar(new JScrollBar());
-        
+
         areaPanel.add(scrollPane);
         areaPanel.setPreferredSize(new Dimension(300, 90));
 
@@ -269,4 +268,4 @@ public class AddNewCustomer extends JPanel implements ActionListener {
             // todo
         }
     }
-}
+    }

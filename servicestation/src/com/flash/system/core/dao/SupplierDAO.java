@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface SupplierDAO {
 
-    public void addSupplier(Supplier customer) throws Exception;
+    public void addSupplier(Supplier supplier) throws Exception;
 
-    public void updateSupplier(Supplier customer) throws Exception;
+    public void updateSupplier(Supplier supplier) throws Exception;
 
-    public void deleteSupplier(Supplier customer) throws Exception;
+    public void deleteSupplier(Supplier supplier) throws Exception;
 
     public Supplier findByPrimaryKey(Long id) throws Exception;
 

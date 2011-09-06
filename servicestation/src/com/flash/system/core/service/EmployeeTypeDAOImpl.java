@@ -25,7 +25,15 @@ public class EmployeeTypeDAOImpl extends BaseDAO implements EmployeeTypeDAO {
     }
 
     public void updateEmployeeType(EmployeeType empType) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            begin();
+            getSession().update(empType);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession();
+            commit();
+        }
     }
 
     public void deleteEmployeeType(EmployeeType empType) throws Exception {

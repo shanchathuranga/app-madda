@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface EmployeeDAO {
 
-    public void addEmployee(Employee customer) throws Exception;
+    public void addEmployee(Employee employee) throws Exception;
 
-    public void updateEmployee(Employee customer) throws Exception;
+    public void updateEmployee(Employee employee) throws Exception;
 
-    public void deleteEmployee(Employee customer) throws Exception;
+    public void deleteEmployee(Employee employee) throws Exception;
 
     public Employee findByPrimaryKey(Long id) throws Exception;
 

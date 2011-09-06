@@ -11,7 +11,7 @@ import org.hibernate.Query;
  *
  * @author shan
  */
-public class ServiceDAOImpl extends BaseDAO implements ServiceDAO{
+public class ServiceDAOImpl extends BaseDAO implements ServiceDAO {
 
     public void addService(Service service) throws Exception {
         try {
@@ -24,7 +24,15 @@ public class ServiceDAOImpl extends BaseDAO implements ServiceDAO{
         }
     }
 
-    public void updateService(Service service) throws Exception{
+    public void updateService(Service service) throws Exception {
+        try {
+            begin();
+            getSession().update(service);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession().saveOrUpdate(service);
+        }
     }
 
     public void deleteService(Service service) throws Exception {
@@ -38,11 +46,11 @@ public class ServiceDAOImpl extends BaseDAO implements ServiceDAO{
         }
     }
 
-    public Service findByPrimaryKey(Long serviceId) throws Exception{
+    public Service findByPrimaryKey(Long serviceId) throws Exception {
         Service service = null;
         try {
             begin();
-            service = (Service)getSession().load(Service.class, serviceId);
+            service = (Service) getSession().load(Service.class, serviceId);
             commit();
         } catch (HibernateException e) {
             rollback();
@@ -64,5 +72,4 @@ public class ServiceDAOImpl extends BaseDAO implements ServiceDAO{
         }
         return services;
     }
-
 }

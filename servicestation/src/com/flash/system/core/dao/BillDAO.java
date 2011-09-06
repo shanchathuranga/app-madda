@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface BillDAO {
 
-    public void addBill(Bill customer) throws Exception;
+    public void addBill(Bill bill) throws Exception;
 
-    public void updateBill(Bill customer) throws Exception;
+    public void updateBill(Bill bill) throws Exception;
 
-    public void deleteBill(Bill customer) throws Exception;
+    public void deleteBill(Bill bill) throws Exception;
 
     public Bill findByPrimaryKey(Long id) throws Exception;
 

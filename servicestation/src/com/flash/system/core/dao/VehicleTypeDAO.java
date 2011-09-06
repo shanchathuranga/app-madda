@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface VehicleTypeDAO {
 
-    public void addVehicleType(VehicleType customer) throws Exception;
+    public void addVehicleType(VehicleType vehicleType) throws Exception;
 
-    public void updateVehicleType(VehicleType customer) throws Exception;
+    public void updateVehicleType(VehicleType vehicleType) throws Exception;
 
-    public void deleteVehicleType(VehicleType customer) throws Exception;
+    public void deleteVehicleType(VehicleType vehicleType) throws Exception;
 
     public VehicleType findByPrimaryKey(Long id) throws Exception;
 

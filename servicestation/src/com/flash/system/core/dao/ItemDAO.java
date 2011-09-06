@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface ItemDAO {
 
-    public void addItem(Item customer) throws Exception;
+    public void addItem(Item item) throws Exception;
 
-    public void updateItem(Item customer) throws Exception;
+    public void updateItem(Item item) throws Exception;
 
-    public void deleteItem(Item customer) throws Exception;
+    public void deleteItem(Item item) throws Exception;
 
     public Item findByPrimaryKey(Long id) throws Exception;
 

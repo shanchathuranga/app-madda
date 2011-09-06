@@ -25,6 +25,15 @@ public class SupplierDAOImpl extends BaseDAO implements SupplierDAO {
     }
 
     public void updateSupplier(Supplier supplier) throws Exception {
+        try {
+            begin();
+            getSession().update(supplier);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession().saveOrUpdate(supplier);
+            commit();
+        }
     }
 
     public void deleteSupplier(Supplier supplier) throws Exception {

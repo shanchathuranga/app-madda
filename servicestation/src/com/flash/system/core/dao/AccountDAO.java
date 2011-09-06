@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface AccountDAO {
 
-    public void addAccount(Account customer) throws Exception;
+    public void addAccount(Account account) throws Exception;
 
-    public void updateAccount(Account customer) throws Exception;
+    public void updateAccount(Account account) throws Exception;
 
-    public void deleteAccount(Account customer) throws Exception;
+    public void deleteAccount(Account account) throws Exception;
 
     public Account findByPrimaryKey(Long id) throws Exception;
 

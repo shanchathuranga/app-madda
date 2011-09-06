@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface OrderDAO {
 
-    public void addOrder(Order customer) throws Exception;
+    public void addOrder(Order order) throws Exception;
 
-    public void updateOrder(Order customer) throws Exception;
+    public void updateOrder(Order order) throws Exception;
 
-    public void deleteOrder(Order customer) throws Exception;
+    public void deleteOrder(Order order) throws Exception;
 
     public Order findByPrimaryKey(Long id) throws Exception;
 

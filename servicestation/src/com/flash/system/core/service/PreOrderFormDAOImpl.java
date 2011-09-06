@@ -25,6 +25,15 @@ public void addPreOrder(PreOrderForm preOrder) throws Exception {
     }
 
     public void updatePreOrder(PreOrderForm preOrder) throws Exception{
+        try{
+            begin();
+            getSession();
+            commit();
+        }catch(HibernateException e){
+            begin();
+            getSession();
+            commit();
+        }
     }
 
     public void deletePreOrder(PreOrderForm preOrder) throws Exception {

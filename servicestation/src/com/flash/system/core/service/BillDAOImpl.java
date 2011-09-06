@@ -25,6 +25,15 @@ public class BillDAOImpl extends BaseDAO implements BillDAO {
     }
 
     public void updateBill(Bill bill) throws Exception {
+        try {
+            begin();
+            getSession().update(bill);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession().saveOrUpdate(bill);
+        }
+
     }
 
     public void deleteBill(Bill bill) throws Exception {

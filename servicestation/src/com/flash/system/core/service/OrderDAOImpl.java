@@ -25,6 +25,15 @@ public class OrderDAOImpl extends BaseDAO implements OrderDAO {
     }
 
     public void updateOrder(Order order) throws Exception {
+        try {
+            begin();
+            getSession().update(order);
+            commit();
+        } catch (HibernateException e) {
+            begin();
+            getSession();
+            commit();
+        }
     }
 
     public void deleteOrder(Order order) throws Exception {
