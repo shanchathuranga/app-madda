@@ -1,5 +1,6 @@
 package com.flash.system.view;
 
+import com.flash.system.util.Resoure;
 import java.awt.BorderLayout;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -215,7 +216,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private void initMenuActions() {
         menuItemExit.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 System.exit(0);
                 System.exit(0);
             }
@@ -223,140 +224,140 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
 
         menuItemAddCustomer.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 addCustomerBody();
             }
         });
 
         menuItemUpdateCustomer.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemRegisterVehicle.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 addNewVehicleBody();
             }
         });
 
         menuItemUpdateVehicle.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemAddNewVehicleModel.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 addNewVehicleModelBody();
             }
         });
 
         menuItemAddNewVehicleCategory.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 addNewVehicleCategoryBody();
             }
         });
 
         menuItemAddNewVehicleType.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 addNewVehicleTypeBody();
             }
         });
 
         menuItemAddNewUser.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 addNewUserBody();
             }
         });
 
         menuItemUpdateUser.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemAddNewServiceType.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 addNewServiceTypeBody();
             }
         });
 
         menuItemUpdateServiceType.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 //
             }
         });
 
         menuItemAddNewUserType.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 addNewUserTypeBody();
             }
         });
         
         menuItemAddNewPreOrder.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 addNewPreOrderBody();
             }
         });
         
         menuItemUpdatePreOrder.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemAddNewStoreItem.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemUpdateStoreItem.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemAddNewOrder.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemUpdateOrder.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemNewPayment.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
 
         menuItemUpdatePayment.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
             }
         });
@@ -367,7 +368,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         toolbar = new JToolBar();
         add(toolbar, BorderLayout.NORTH);
 
-        ImageIcon exit = new ImageIcon(getClass().getResource("/com/flash/system/resource/exit.png"));
+        ImageIcon exit = new ImageIcon(getClass().getResource(Resoure.EXIT_ICON));
 
         toolExit = new JButton(exit);
         toolExit.setToolTipText("Application Exit");
@@ -379,7 +380,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
             }
         });
 
-        ImageIcon newCustomerIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/add_customer.png"));
+        ImageIcon newCustomerIcon = new ImageIcon(getClass().getResource(Resoure.ADD_CUSTOMER_ICON));
 
 
         toolNewCustomer = new JButton(newCustomerIcon);
@@ -393,7 +394,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
             }
         });
 
-        ImageIcon updateCustomerIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/edit_customer.png"));
+        ImageIcon updateCustomerIcon = new ImageIcon(getClass().getResource(Resoure.EDIT_CUSTOMER_ICON));
 
         toolUpdateCustomer = new JButton(updateCustomerIcon);
         toolUpdateCustomer.setToolTipText("Update Customer");
@@ -406,8 +407,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
             }
         });
 
-        ImageIcon addUserIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/add_user"
-                + ".png"));
+        ImageIcon addUserIcon = new ImageIcon(getClass().getResource(Resoure.ADD_USER_ICON));
 
         toolNewUser = new JButton(addUserIcon);
         toolNewUser.setToolTipText("Create New User");
@@ -420,7 +420,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
             }
         });
 
-        ImageIcon updateUserIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/edit_user.png"));
+        ImageIcon updateUserIcon = new ImageIcon(getClass().getResource(Resoure.EDIT_USER_ICON));
 
         toolUpdateUser = new JButton(updateUserIcon);
         toolUpdateUser.setToolTipText("Update User");
@@ -433,7 +433,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
             }
         });
 
-        ImageIcon addVehicleIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/add_vehicle.png"));
+        ImageIcon addVehicleIcon = new ImageIcon(getClass().getResource(Resoure.ADD_VEHICLE_ICON));
 
         toolNewVehicle = new JButton(addVehicleIcon);
         toolNewVehicle.setToolTipText("Add New Vehicle");
@@ -441,12 +441,12 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         toolNewVehicle.setVisible(false);
         toolNewVehicle.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not Supported yet.");
             }
         });
 
-        ImageIcon updateVehicleIcon = new ImageIcon(getClass().getResource("/com/flash/system/resource/edit_vehicle.png"));
+        ImageIcon updateVehicleIcon = new ImageIcon(getClass().getResource(Resoure.EDIT_VEHICLE_ICON));
 
         toolUpdateVehicle = new JButton(updateVehicleIcon);
         toolUpdateVehicle.setToolTipText("Update Vehicle");
@@ -454,7 +454,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         toolUpdateVehicle.setVisible(false);
         toolUpdateVehicle.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "Not Supported yet.");
             }
         });
@@ -465,7 +465,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
 
         toolLogInOut.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent event) {
                 if (MainWindow.appSession.containsKey("USERNAME")) {
                     int n = JOptionPane.showConfirmDialog(
                             null,
