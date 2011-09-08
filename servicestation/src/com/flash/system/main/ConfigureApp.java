@@ -49,6 +49,8 @@ public class ConfigureApp {
         addSampleCustomers();
         addSampleEmployeeTypes();
         addSampleVehicleCategories();
+        addSampleVehicleModels();
+        addSampleVehicleTypes();
     }
 
     private static void addSampleCustomers() {
@@ -88,9 +90,36 @@ public class ConfigureApp {
     private static void addSampleVehicleCategories() {
         VehicleManagerService vm = new VehicleManagerService();
         RandomString myTestData = new RandomString();
-        String[] vCat = {"Bus", "Truck", "Lorry", "Van", "Car", "Cab", "Jeep", "Trakter"};
+        String[] vCat = {"Bus", "Truck", "Lorry", "Van", "Car", "Pick Up", "Jeep", "Land Vehicles"};
         for (int i = 0; i < vCat.length; i++) {
             String s = vm.addNewVehicleCategory(vCat[i]);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+            }
+        }
+    }
+
+    private static void addSampleVehicleModels() {
+        VehicleManagerService vm = new VehicleManagerService();
+        RandomString myTestData = new RandomString();
+        String[] vCat = {"TOYOTA", "NISSAN", "HONDA", "MITSUBISHI", "JEEP",
+            "MICRO", "LAYLAND", "TATA", "LAND ROVER"};
+        for (int i = 0; i < vCat.length; i++) {
+            String s = vm.addNewVehicleModel(vCat[i]);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+            }
+        }
+    }
+
+    private static void addSampleVehicleTypes() {
+        VehicleManagerService vm = new VehicleManagerService();
+        RandomString myTestData = new RandomString();
+        String[] vCat = {"PATROL", "DIESEL", "GAS", "ELECTRIC", "HYBRID", "OTHER"};
+        for (int i = 0; i < vCat.length; i++) {
+            String s = vm.addNewVehicleType(vCat[i]);
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
