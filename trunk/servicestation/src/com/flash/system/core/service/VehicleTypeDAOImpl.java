@@ -68,7 +68,7 @@ public class VehicleTypeDAOImpl extends BaseDAO implements VehicleTypeDAO {
         List<VehicleType> vehicleTypes = null;
         try {
             begin();
-            Query query = getSession().createQuery("from Vehicle");
+            Query query = getSession().createQuery("from VehicleType");
             vehicleTypes = query.list();
             commit();
         } catch (HibernateException e) {

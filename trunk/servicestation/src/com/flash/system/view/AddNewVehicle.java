@@ -1,11 +1,15 @@
 package com.flash.system.view;
 
+import com.flash.system.core.entity.VehicleCategory;
+import com.flash.system.core.entity.VehicleModel;
+import com.flash.system.core.entity.VehicleType;
 import com.flash.system.logic.VehicleManagerService;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -72,6 +76,10 @@ public class AddNewVehicle extends JPanel implements ActionListener {
     public AddNewVehicle(CommonWindowUtilities comUtil) {
         this.comUtil = comUtil;
         vehicleManagerService = new VehicleManagerService();
+
+        List<VehicleCategory> vehicleCategoryList = vehicleManagerService.getAllVehicleCategories();
+        List<VehicleModel> vehicleModelList = vehicleManagerService.getAllVehicleModels();
+        List<VehicleType> vehicleTypeList = vehicleManagerService.getAllVehicleTypes();
 
         base = new JPanel();
         base.setLayout(new MigLayout());
@@ -233,6 +241,24 @@ public class AddNewVehicle extends JPanel implements ActionListener {
         base.add(bClearVehicle);
 
         add(base);
+
+        for(VehicleCategory vehicleCategory : vehicleCategoryList) {
+            String s = vehicleCategory.getCategoryCode() +
+                    " : " +vehicleCategory.getCategoryName();
+            tVehicleCategory.addItem(s);
+        }
+
+        for(VehicleModel vehicleModel : vehicleModelList) {
+            String s = vehicleModel.getModelCode() +
+                    " : " + vehicleModel.getModelName();
+            tVehicleModel.addItem(s);
+        }
+
+        for(VehicleType vehicleType : vehicleTypeList) {
+            String s = vehicleType.getModelCode() +
+                    " : " + vehicleType.getModelName();
+            tVehicleType.addItem(s);
+        }
     }
 
     public void actionPerformed(ActionEvent click) {

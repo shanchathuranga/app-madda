@@ -69,7 +69,7 @@ public class VehicleModelDAOImpl extends BaseDAO implements VehicleModelDAO {
         List<VehicleModel> vehicleModels = null;
         try {
             begin();
-            Query query = getSession().createQuery("from Vehicle");
+            Query query = getSession().createQuery("from VehicleModel");
             vehicleModels = query.list();
             commit();
         } catch (HibernateException e) {

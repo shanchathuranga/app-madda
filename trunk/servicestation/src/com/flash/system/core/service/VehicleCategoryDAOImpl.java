@@ -68,7 +68,7 @@ public class VehicleCategoryDAOImpl extends BaseDAO implements VehicleCategoryDA
         List<VehicleCategory> vehicleCategorys = null;
         try {
             begin();
-            Query query = getSession().createQuery("from Vehicle");
+            Query query = getSession().createQuery("from VehicleCategory");
             vehicleCategorys = query.list();
             commit();
         } catch (HibernateException e) {
