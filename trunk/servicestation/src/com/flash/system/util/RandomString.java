@@ -1,4 +1,4 @@
-package com.Insert.Testdata;
+package com.flash.system.util;
 
 import java.util.Random;
 

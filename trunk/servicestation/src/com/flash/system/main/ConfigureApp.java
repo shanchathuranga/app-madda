@@ -1,6 +1,6 @@
 package com.flash.system.main;
 
-import com.Insert.Testdata.RandomString;
+import com.flash.system.util.RandomString;
 import com.flash.system.core.entity.*;
 import com.flash.system.logic.CustomerManagerService;
 import com.flash.system.logic.EmployeeManagerService;
