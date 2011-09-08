@@ -116,7 +116,7 @@ public class VehicleManagerService {
         return vehicle;
     }
 
-    public List<Vehicle> getAll() {
+    public List<Vehicle> getAllVehicles() {
         List<Vehicle> vehicles = null;
         try {
             vehicles = vehicleDAO.findAll();
@@ -126,4 +126,38 @@ public class VehicleManagerService {
         }
         return vehicles;
     }
+
+    public List<VehicleCategory> getAllVehicleCategories() {
+        List<VehicleCategory> vehicleCategorys = null;
+        try {
+            vehicleCategorys = vehicleCategoryDAO.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(VehicleManagerService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error occured : " + ex);
+        }
+        return vehicleCategorys;
+    }
+
+    public List<VehicleModel> getAllVehicleModels() {
+        List<VehicleModel> vehicleModels = null;
+        try {
+            vehicleModels = vehicleModelDAO.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(VehicleManagerService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error occured : " + ex);
+        }
+        return vehicleModels;
+    }
+
+    public List<VehicleType> getAllVehicleTypes() {
+        List<VehicleType> vehicleTypes = null;
+        try {
+            vehicleTypes = vehicleTypeDAO.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(VehicleManagerService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error occured : " + ex);
+        }
+        return vehicleTypes;
+    }
+
 }
