@@ -1,5 +1,7 @@
 package com.flash.system.main;
 
+import com.flash.system.view.LogIn;
+
 /**
  *
  * @author shan
@@ -18,7 +20,9 @@ public class Main {
 
         //ConfigureApp.runTestData();
 
-        ConfigureApp.startUI();
+        new LogIn();
+
+        //ConfigureApp.startUI();
 
     }
 }

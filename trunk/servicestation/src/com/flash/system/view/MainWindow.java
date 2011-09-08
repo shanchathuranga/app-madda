@@ -1,5 +1,6 @@
 package com.flash.system.view;
 
+import com.flash.system.util.ApplicationSession;
 import com.flash.system.util.Resoure;
 import java.awt.BorderLayout;
 import java.awt.GraphicsDevice;
@@ -7,8 +8,6 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
@@ -77,7 +76,6 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JCheckBoxMenuItem toolUpdateUserItem;
     private JCheckBoxMenuItem toolAddNewVehicleItem;
     private JCheckBoxMenuItem toolUpdateVehicleItem;
-    public static Map appSession = new HashMap();
 
     public MainWindow() {
         super();
@@ -466,7 +464,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         toolLogInOut.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent event) {
-                if (MainWindow.appSession.containsKey("USERNAME")) {
+                if (ApplicationSession.appSession.containsKey("USERNAME")) {
                     int n = JOptionPane.showConfirmDialog(
                             null,
                             "You are going to logout. Are you sure ?",
@@ -474,7 +472,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
                             JOptionPane.YES_NO_OPTION);
                     if (n == JOptionPane.YES_OPTION) {
                         getLogInOut().setText("Log In");
-                        MainWindow.appSession.remove("USERNAME");
+                        ApplicationSession.appSession.remove("USERNAME");
                         clearBody();
                     }
                 } else {
@@ -559,8 +557,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private void loginBody() {
         base.removeAll();
         base.repaint();
-        LogIn login = new LogIn(this);
-        base.add(login);
+        //LogIn login = new LogIn(this);
+        //base.add(login);
         base.validate();
     }
 
