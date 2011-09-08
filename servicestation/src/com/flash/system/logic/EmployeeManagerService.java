@@ -2,6 +2,7 @@ package com.flash.system.logic;
 
 import com.flash.system.core.dao.EmployeeDAO;
 import com.flash.system.core.dao.EmployeeTypeDAO;
+import com.flash.system.core.entity.Employee;
 import com.flash.system.core.entity.EmployeeType;
 import com.flash.system.core.service.EmployeeDAOImpl;
 import com.flash.system.core.service.EmployeeTypeDAOImpl;
@@ -43,6 +44,10 @@ public class EmployeeManagerService {
         } catch (Exception e) {
         }
         return new ArrayList<EmployeeType>();
+    }
+
+    public boolean authenticateUser(Employee guestUser) {
+        return false;
     }
 
 }

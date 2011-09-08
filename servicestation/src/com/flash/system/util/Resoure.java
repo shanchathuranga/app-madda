@@ -2,7 +2,7 @@ package com.flash.system.util;
 
 /**
  *
- * @author sampath
+ * @author shan
  */
 public class Resoure {
 
