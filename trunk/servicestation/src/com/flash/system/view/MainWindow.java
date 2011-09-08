@@ -39,6 +39,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JMenu menuPreOrder;
     private JMenu menuStore;
     private JMenu menuOrder;
+    private JMenu menuPayment;
     private JMenuItem menuItemExit;
     private JMenuItem menuItemAddCustomer;
     private JMenuItem menuItemUpdateCustomer;
@@ -58,6 +59,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
     private JMenuItem menuItemUpdateStoreItem;
     private JMenuItem menuItemAddNewOrder;
     private JMenuItem menuItemUpdateOrder;
+    private JMenuItem menuItemNewPayment;
+    private JMenuItem menuItemUpdatePayment;
     private JToolBar toolbar;
     private JButton toolExit;
     private JButton toolNewCustomer;
@@ -127,6 +130,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuPreOrder = new JMenu("Pre Order");
         menuStore = new JMenu("Stroe Mgt");
         menuOrder = new JMenu("Order Mgt");
+        menuPayment = new JMenu("Payments");
 
         /* Creating Menu Items */
         menuItemExit = new JMenuItem("Exit");
@@ -148,6 +152,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuItemUpdateStoreItem = new JMenuItem("Update Store Item");
         menuItemAddNewOrder = new JMenuItem("Add New Order");
         menuItemUpdateOrder = new JMenuItem("Update Order");
+        menuItemNewPayment = new JMenuItem("New Payment");
+        menuItemUpdatePayment = new JMenuItem("Update Payment");
 
         toolAddNewCustomerItem = new JCheckBoxMenuItem("show Add New Customer Icon");
         toolAddNewCustomerItem.setState(false);
@@ -192,6 +198,8 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menuStore.add(menuItemUpdateStoreItem);
         menuOrder.add(menuItemAddNewOrder);
         menuOrder.add(menuItemUpdateOrder);
+        menuPayment.add(menuItemNewPayment);
+        menuPayment.add(menuItemUpdatePayment);
 
         /* Adding Menus to the Menubar */
         menubar.add(menuApp);
@@ -199,6 +207,7 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         menubar.add(menuVehicle);
         menubar.add(menuPreOrder);
         menubar.add(menuStore);
+        menubar.add(menuPayment);
 
         setJMenuBar(menubar);
     }
@@ -332,6 +341,20 @@ public class MainWindow extends JFrame implements CommonWindowUtilities {
         });
 
         menuItemUpdateOrder.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                JOptionPane.showMessageDialog(null, "Not supported yet.");
+            }
+        });
+
+        menuItemNewPayment.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent ae) {
+                JOptionPane.showMessageDialog(null, "Not supported yet.");
+            }
+        });
+
+        menuItemUpdatePayment.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent ae) {
                 JOptionPane.showMessageDialog(null, "Not supported yet.");
