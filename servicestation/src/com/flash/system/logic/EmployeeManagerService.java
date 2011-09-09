@@ -84,5 +84,33 @@ public class EmployeeManagerService {
             return true;
         return false;
     }
+    
+    public boolean hasMAXPermission(SysUser sysUser) {
+        return true;
+    }
+
+    public boolean hasMANPermission(SysUser sysUser) {
+        return true;
+    }
+    
+    public boolean hasITHPermission(SysUser sysUser) {
+        return true;
+    }
+    
+    public boolean hasSTRPermission(SysUser sysUser) {
+        return true;
+    }
+    
+    public boolean hasACCPermission(SysUser sysUser) {
+        return true;
+    }
+    
+    public boolean hasLOWPermission(SysUser sysUser) {
+        return true;
+    }
+    
+    public boolean hasNONEPermission(SysUser sysUser) {
+        return true;
+    }
 
 }
