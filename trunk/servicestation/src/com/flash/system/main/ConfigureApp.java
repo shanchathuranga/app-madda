@@ -19,7 +19,7 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
  */
 public class ConfigureApp {
 
-    public static void runPreSQL() {
+    public static void recreateDB() {
         System.out.println("Running DB queries...");
 
         AnnotationConfiguration config = new AnnotationConfiguration();
@@ -39,6 +39,7 @@ public class ConfigureApp {
         config.addAnnotatedClass(VehicleCategory.class);
         config.addAnnotatedClass(VehicleModel.class);
         config.addAnnotatedClass(VehicleType.class);
+        config.addAnnotatedClass(SysUser.class);
 
         config.configure();
 
@@ -51,6 +52,7 @@ public class ConfigureApp {
         addSampleVehicleCategories();
         addSampleVehicleModels();
         addSampleVehicleTypes();
+        addSystemUser();
     }
 
     private static void addSampleCustomers() {
@@ -125,6 +127,18 @@ public class ConfigureApp {
             } catch (InterruptedException ex) {
             }
         }
+    }
+
+    private static void addSystemUser() {
+        SysUser sysUser = new SysUser();
+        sysUser.setUsername("root");
+        char pw[] = {'r', 'o', 'o', 't'};
+        sysUser.setPassword(pw);
+        sysUser.setPermission(Permission.Perm.PERM_ANY);
+        sysUser.setEmployeeIdNumber("E0000");
+
+        EmployeeManagerService em = new EmployeeManagerService();
+        em.addSysUser(sysUser);
     }
 
     public static void startUI() {

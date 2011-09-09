@@ -12,6 +12,7 @@ import com.flash.system.core.entity.PreOrderForm;
 import com.flash.system.core.entity.Service;
 import com.flash.system.core.entity.ServiceType;
 import com.flash.system.core.entity.Supplier;
+import com.flash.system.core.entity.SysUser;
 import com.flash.system.core.entity.Vehicle;
 import com.flash.system.core.entity.VehicleCategory;
 import com.flash.system.core.entity.VehicleModel;
@@ -50,6 +51,7 @@ public class BaseDAO {
             .addAnnotatedClass(VehicleCategory.class)
             .addAnnotatedClass(VehicleModel.class)
             .addAnnotatedClass(VehicleType.class)
+            .addAnnotatedClass(SysUser.class)
             .configure().buildSessionFactory();
 
     @SuppressWarnings("unchecked")
