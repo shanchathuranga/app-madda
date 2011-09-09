@@ -1,15 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.flash.system.core.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Temporal;
 
 /**
@@ -17,11 +15,13 @@ import javax.persistence.Temporal;
  * @author shan
  */
 @Entity
-public class Employee {
+@Inheritance(strategy=InheritanceType.JOINED)
+public class Employee implements Serializable {
 
     private long employeeId;
     private String employeeType;
-    private String employeeName;
+    private String employeeFName;
+    private String employeeLName;
     private String employeeIdNumber;
     private String employeeAddress;
     private String employeePhone;
@@ -81,12 +81,20 @@ public class Employee {
         this.employeeJoinDate = employeeJoinDate;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
+    public String getEmployeeFName() {
+        return employeeFName;
     }
 
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
+    public void setEmployeeFName(String employeeFName) {
+        this.employeeFName = employeeFName;
+    }
+
+    public String getEmployeeLName() {
+        return employeeLName;
+    }
+
+    public void setEmployeeLName(String employeeLName) {
+        this.employeeLName = employeeLName;
     }
 
     public String getEmployeePhone() {
@@ -104,8 +112,5 @@ public class Employee {
     public void setEmployeeType(String employeeType) {
         this.employeeType = employeeType;
     }
-
-    
-
 
 }

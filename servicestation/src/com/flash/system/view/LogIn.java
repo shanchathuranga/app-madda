@@ -3,6 +3,7 @@ package com.flash.system.view;
 import com.flash.system.core.entity.SysUser;
 import com.flash.system.logic.EmployeeManagerService;
 import com.flash.system.main.ConfigureApp;
+import com.flash.system.util.ApplicationSession;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -99,9 +100,11 @@ public class LogIn extends JFrame implements ActionListener {
             SysUser sysUser = new SysUser();
             sysUser.setUsername(tUsername.getText());
             sysUser.setPassword(tPassword.getPassword());
+            
             boolean res = employeeManagerService.authenticateUser(sysUser);
 
             if (res) {
+                ApplicationSession.appSession.put("USER", sysUser);
                 ConfigureApp.startUI();
             } else {
                 JOptionPane.showMessageDialog(null,

@@ -14,11 +14,13 @@ import javax.persistence.Id;
 public class Permission implements Serializable {
 
     public enum Perm {
-        HIGHEST,
-        APPROVE,
-        WRITE,
-        READ,
-        NONE
+        PERM_ANY,
+        PERM_MAN,
+        PERM_ITH,
+        PERM_STR,
+        PERM_ACC,
+        PERM_LOW,
+        PERM_NONE
     }
     
     private int permCode;

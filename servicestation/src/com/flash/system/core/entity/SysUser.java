@@ -1,12 +1,15 @@
 package com.flash.system.core.entity;
 
 import com.flash.system.core.entity.Permission.Perm;
+import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author shan
  */
-public class SysUser extends Employee{
+@Entity
+public class SysUser extends Employee implements Serializable{
 
     private String username;
     private char[] password;
